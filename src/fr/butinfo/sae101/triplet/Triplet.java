@@ -66,6 +66,11 @@ public class Triplet {
                 - getY() * trip.getX()
                 );
     }
+    protected Triplet schurProduct(Triplet trip){
+        return new Triplet(getX() * trip.getX(),
+                getY() * trip.getY(),
+                getZ() * trip.getZ());
+    }
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
     }
