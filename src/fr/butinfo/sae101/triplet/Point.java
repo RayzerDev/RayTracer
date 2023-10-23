@@ -21,6 +21,10 @@ public class Point {
         return new Vector(coor.sub(point.getCoor()));
     }
 
+    protected Point multiply(double scalar){
+        return new Point(coor.multiply(scalar));
+    }
+
     @Override
     public String toString() {
         return coor.toString();
