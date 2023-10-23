@@ -34,6 +34,10 @@ public class Vector {
         return new Vector(coor.multiply(scalar));
     }
 
+    protected double scalarProduct(Vector vector){
+        return coor.scalarProduct(vector.getCoor());
+    }
+
     @Override
     public String toString() {
         return coor.toString();
