@@ -18,6 +18,13 @@ public class Vector {
         this.coor = coor;
     }
 
+    protected Point add(Point point){
+        return new Point(coor.add(point.getCoor()));
+    }
+
+    protected Vector add(Vector vector){
+        return new Vector(coor.add(vector.getCoor()));
+    }
 
     @Override
     public String toString() {
