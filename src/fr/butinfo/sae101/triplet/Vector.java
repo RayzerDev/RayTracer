@@ -30,6 +30,10 @@ public class Vector {
         return new Vector(coor.sub(vector.getCoor()));
     }
 
+    protected Vector multiply(double scalar){
+        return new Vector(coor.multiply(scalar));
+    }
+
     @Override
     public String toString() {
         return coor.toString();
