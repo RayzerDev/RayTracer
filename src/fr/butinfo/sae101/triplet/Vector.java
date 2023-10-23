@@ -6,6 +6,9 @@ public class Vector {
     public Vector(double x, double y, double z){
         coor = new Triplet(x,y,z);
     }
+    public Vector(Triplet coor){
+        this.coor = coor;
+    }
 
     public Triplet getCoor() {
         return coor;

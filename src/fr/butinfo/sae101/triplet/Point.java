@@ -6,7 +6,9 @@ public class Point {
     public Point(double x, double y, double z){
         coor = new Triplet(x,y,z);
     }
-
+    public Point(Triplet coor){
+        this.coor = coor;
+    }
     public Triplet getCoor() {
         return coor;
     }

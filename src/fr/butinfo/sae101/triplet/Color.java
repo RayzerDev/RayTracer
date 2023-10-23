@@ -7,6 +7,9 @@ public class Color {
         coor = new Triplet(x,y,z);
     }
 
+    public Color(Triplet coor){
+        this.coor = coor;
+    }
     public Triplet getCoor() {
         return coor;
     }
