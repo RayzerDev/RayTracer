@@ -12,6 +12,7 @@ public class Main {
         Triplet vect_prod = t1.vectorProduct(t2);
         Triplet schur_prod = t1.schurProduct(t2);
         double length = t1.length();
+        Triplet norm = t1.normalize();
 
         System.out.println(t1);
         System.out.println(t2);
@@ -23,5 +24,6 @@ public class Main {
         System.out.println("Produit vectoriel: " + vect_prod);
         System.out.println("Produit Schur: " + schur_prod);
         System.out.println("Longueur: " + length);
+        System.out.println("Normalisation: " + norm);
     }
 }
