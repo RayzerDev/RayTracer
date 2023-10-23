@@ -3,6 +3,7 @@ package fr.butinfo.sae101.parser.scene;
 import fr.butinfo.sae101.parser.Camera;
 import fr.butinfo.sae101.parser.light.Light;
 import fr.butinfo.sae101.triplet.Color;
+import fr.butinfo.sae101.triplet.Point;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,14 @@ public class SceneBuilder implements Builder{
     private Color ambient;
 
     private Color diffuse;
+
+    private Color specular;
+
+    private int shininess;
+
+    private int maxverts;
+
+    private List<Point> points;
 
     @Override
     public void setCamera(Camera camera) {
@@ -53,6 +62,51 @@ public class SceneBuilder implements Builder{
      */
     public void setDiffuse(Color diffuse) {
         this.diffuse = diffuse;
+    }
+
+    /**
+     * Sets specular.
+     *
+     * @param specular the specular
+     */
+    public void setSpecular(Color specular) {
+        this.specular = specular;
+    }
+
+    /**
+     * Sets shininess.
+     *
+     * @param shininess the shininess
+     */
+    public void setShininess(int shininess) {
+        this.shininess = shininess;
+    }
+
+    public void setMaxverts(int maxverts) {
+        points = new ArrayList<>(getMaxverts());
+        this.maxverts = maxverts;
+    }
+
+    public int getMaxverts() {
+        return maxverts;
+    }
+
+    /**
+     * Gets shininess.
+     *
+     * @return the shininess
+     */
+    public int getShininess() {
+        return shininess;
+    }
+
+    /**
+     * Gets specular.
+     *
+     * @return the specular
+     */
+    public Color getSpecular() {
+        return specular;
     }
 
     /**
@@ -88,6 +142,8 @@ public class SceneBuilder implements Builder{
         lights.add(light);
     }
 
+    public void addPoint(Point point){points.add(point);}
+
     @Override
     public void addObject(SceneObjects sceneObj) {
         sceneObjs.add(sceneObj);
@@ -95,6 +151,6 @@ public class SceneBuilder implements Builder{
 
     @Override
     public Scene build() {
-        return new Scene(camera,height,width,lights,sceneObjs,ambient);
+        return new Scene(camera,height,width,lights,sceneObjs,ambient, points);
     }
 }

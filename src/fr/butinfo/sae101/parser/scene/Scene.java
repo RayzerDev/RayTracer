@@ -1,8 +1,10 @@
 package fr.butinfo.sae101.parser.scene;
 
 import fr.butinfo.sae101.parser.Camera;
+import fr.butinfo.sae101.parser.Parser;
 import fr.butinfo.sae101.parser.light.Light;
 import fr.butinfo.sae101.triplet.Color;
+import fr.butinfo.sae101.triplet.Point;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,8 @@ public class Scene {
 
     private Color ambient;
 
+    private List<Point> points;
+
     /**
      * Instantiates a new Scene.
      *
@@ -33,13 +37,14 @@ public class Scene {
      * @param sceneobj the sceneobj
      * @param ambient  the ambient
      */
-    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj, Color ambient) {
+    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj, Color ambient, List<Point> points) {
         this.camera = camera;
         this.height = height;
         this.width = width;
         this.light = light;
         this.sceneobj = sceneobj;
         this.ambient = ambient;
+        this.points = points;
     }
 
     /**

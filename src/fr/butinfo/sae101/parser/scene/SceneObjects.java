@@ -11,6 +11,8 @@ public abstract class SceneObjects {
     private Triplet diffuseColor;
     private Triplet specularColor;
 
+    private int shininess;
+
     SceneBuilder sceneBuilder = new SceneBuilder();
 
     /**
@@ -20,10 +22,11 @@ public abstract class SceneObjects {
      * @param diffuseColor  the diffuse color
      * @param specularColor the specular color
      */
-    public SceneObjects(Triplet position, Triplet diffuseColor, Triplet specularColor) {
+    public SceneObjects(Triplet position, Triplet diffuseColor, Triplet specularColor, int shininess) {
         this.position = position;
         this.diffuseColor = diffuseColor;
         this.specularColor = specularColor;
+        this.shininess = shininess;
     }
 
     /**
@@ -53,22 +56,26 @@ public abstract class SceneObjects {
         return specularColor;
     }
 
+    public int getShininess() {
+        return shininess;
+    }
+
     /**
-     * Sets diffuse color.
-     *
-     * @param diffuseColor the diffuse color
+     * Sets diffus color.
      */
-    public void setDiffuseColor(Triplet diffuseColor) {
+    public void setDiffuseColor() {
         this.diffuseColor = Parser.sceneBuilder.getDiffuse().getCoor();
     }
 
     /**
      * Sets specular color.
-     *
-     * @param specularColor the specular color
      */
-    public void setSpecularColor(Triplet specularColor) {
-        this.specularColor = specularColor;
+    public void setSpecularColor() {
+        this.specularColor = Parser.sceneBuilder.getSpecular().getCoor();
+    }
+
+    public void setShininess(int shininess) {
+        this.shininess = shininess;
     }
 }
 

@@ -1,14 +1,19 @@
 package fr.butinfo.sae101.parser;
 
+import fr.butinfo.sae101.parser.light.DirectionalLigth;
+import fr.butinfo.sae101.parser.light.PointLight;
+import fr.butinfo.sae101.parser.objects.Sphere;
 import fr.butinfo.sae101.parser.scene.SceneBuilder;
 import fr.butinfo.sae101.parser.scene.Scene;
+import fr.butinfo.sae101.parser.scene.SceneObjects;
 import fr.butinfo.sae101.triplet.Color;
+import fr.butinfo.sae101.triplet.Point;
 import fr.butinfo.sae101.triplet.Triplet;
 import fr.butinfo.sae101.triplet.Vector;
 
 import java.io.*;
 import java.util.InputMismatchException;
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class Parser {
 
@@ -48,12 +53,51 @@ public class Parser {
 
                 }
 
+                case "specular" -> sceneBuilder.setSpecular(new Color(new Triplet(Double.parseDouble(lineSplit[1]),Double.parseDouble(lineSplit[2]),Double.parseDouble(lineSplit[3]))));
+
+                case "shininess" -> sceneBuilder.setShininess(Integer.parseInt(lineSplit[1]));
+
+                case "directional" -> {
+                    DirectionalLigth ligth = new DirectionalLigth(
+                            new Vector(Integer.parseInt(lineSplit[1]), Integer.parseInt(lineSplit[2]), Integer.parseInt(lineSplit[3])),
+                            new Color(new Triplet(Double.parseDouble(lineSplit[4]), Double.parseDouble(lineSplit[5]), Double.parseDouble(lineSplit[6])))
+                    );
+                    if(ligth.getColor().getCoor().getX() > 1 || ligth.getColor().getCoor().getY() > 1 || ligth.getColor().getCoor().getZ() > 1){
+                        throw new InputMismatchException();
+                    }
+                    sceneBuilder.addLight(ligth);
+                }
+
+                case "point" -> {
+                    PointLight ligth = new PointLight(
+                            new Point(Integer.parseInt(lineSplit[1]), Integer.parseInt(lineSplit[2]), Integer.parseInt(lineSplit[3])),
+                            new Color(new Triplet(Double.parseDouble(lineSplit[4]), Double.parseDouble(lineSplit[5]), Double.parseDouble(lineSplit[6]))
+                            ));
+                    if(ligth.getColor().getCoor().getX() > 1 || ligth.getColor().getCoor().getY() > 1 || ligth.getColor().getCoor().getZ() > 1){
+                        throw new InputMismatchException();
+                    }
+                    sceneBuilder.addLight(ligth);
+                }
+
+                case "maxverts" -> sceneBuilder.setMaxverts(Integer.parseInt(lineSplit[1]));
+
+                case "vertex" -> sceneBuilder.addPoint(new Point(Integer.parseInt(lineSplit[1]), Integer.parseInt(lineSplit[2]), Integer.parseInt(lineSplit[3])));
+
+                case "tri" -> {
+
+                }
+
+                case "sphere" -> sceneBuilder.addObject(new Sphere(
+                        new Triplet(Integer.parseInt(lineSplit[1]),Integer.parseInt(lineSplit[2]),Integer.parseInt(lineSplit[3])),
+                        Double.parseDouble(lineSplit[4]),
+                        sceneBuilder.getDiffuse().getCoor(),
+                        sceneBuilder.getSpecular().getCoor(),
+                        sceneBuilder.getShininess()));
 
             }
 
-
-
         });
+        in.close();
         return sceneBuilder.build();
     }
 }
