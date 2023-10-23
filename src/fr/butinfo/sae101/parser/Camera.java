@@ -1,5 +1,7 @@
 package fr.butinfo.sae101.parser;
 
+import fr.butinfo.sae101.triplet.Vector;
+
 /**
  * The type Camera.
  * @author anthony.rolland
