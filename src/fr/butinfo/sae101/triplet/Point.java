@@ -16,6 +16,11 @@ public class Point {
     public void setCoor(Triplet coor) {
         this.coor = coor;
     }
+
+    protected Vector sub(Point point){
+        return new Vector(coor.sub(point.getCoor()));
+    }
+
     @Override
     public String toString() {
         return coor.toString();
