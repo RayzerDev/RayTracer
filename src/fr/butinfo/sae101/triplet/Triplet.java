@@ -34,6 +34,12 @@ public class Triplet {
     public void setZ(double z) {
         this.z = z;
     }
+
+    private void add(Triplet trip){
+        setX(getX()+trip.getX());
+        setY(getY()+trip.getY());
+        setZ(getZ()+trip.getZ());
+    }
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
     }
