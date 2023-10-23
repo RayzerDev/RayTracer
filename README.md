@@ -22,3 +22,5 @@ git clone https://gitlab.univ-artois.fr/anthony_rolland/sae1.01-groupe13.git
 - Anthony Rolland: [@anthony_rolland](mailto:anthony_rolland@ens.univ-artois.fr)
 - Damien Allaert [@damien_allaert](mailto:damien_allaert@ens.univ-artois.fr)
         
+## Diagramme de classe
+![image](/ressources/diagram.png)
