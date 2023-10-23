@@ -36,14 +36,19 @@ public class Triplet {
     }
 
     protected Triplet add(Triplet trip){
-        return new Triplet(getX()+trip.getX(),
-                getY()+trip.getY(),
-                getZ()+trip.getZ());
+        return new Triplet(getX() + trip.getX(),
+                getY() + trip.getY(),
+                getZ() + trip.getZ());
     }
     protected Triplet sub(Triplet trip){
-        return new Triplet(getX()-trip.getX(),
-                getY()-trip.getY(),
-                getZ()-trip.getZ());
+        return new Triplet(getX() - trip.getX(),
+                getY() - trip.getY(),
+                getZ() - trip.getZ());
+    }
+    protected Triplet multiply(double scalar) {
+        return new Triplet(getX() * scalar,
+                getY() * scalar,
+                getZ() * scalar);
     }
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
