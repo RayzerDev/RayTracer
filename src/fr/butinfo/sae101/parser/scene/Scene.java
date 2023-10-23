@@ -1,8 +1,11 @@
 package fr.butinfo.sae101.parser.scene;
 
 import fr.butinfo.sae101.parser.Camera;
+import fr.butinfo.sae101.parser.Parser;
 import fr.butinfo.sae101.parser.light.Light;
 import fr.butinfo.sae101.parser.objects.SceneObject;
+import fr.butinfo.sae101.triplet.Color;
+import fr.butinfo.sae101.triplet.Point;
 
 import java.util.List;
 
@@ -18,7 +21,11 @@ public class Scene {
 
     private List<Light> light;
 
-    private List<SceneObject> sceneobj;
+    private List<SceneObjects> sceneobj;
+
+    private Color ambient;
+
+    private List<Point> points;
 
     /**
      * Instantiates a new Scene.
@@ -28,13 +35,16 @@ public class Scene {
      * @param width    the width
      * @param light    the light
      * @param sceneobj the sceneobj
+     * @param ambient  the ambient
      */
-    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObject> sceneobj) {
+    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj, Color ambient, List<Point> points) {
         this.camera = camera;
         this.height = height;
         this.width = width;
         this.light = light;
         this.sceneobj = sceneobj;
+        this.ambient = ambient;
+        this.points = points;
     }
 
     /**
@@ -60,7 +70,7 @@ public class Scene {
      *
      * @return the sceneobj
      */
-    public List<SceneObject> getSceneobj() {
+    public List<SceneObjects> getSceneobj() {
         return sceneobj;
     }
 
@@ -80,6 +90,15 @@ public class Scene {
      */
     public float getWidth() {
         return width;
+    }
+
+    /**
+     * Gets ambient.
+     *
+     * @return the ambient
+     */
+    public Color getAmbient() {
+        return ambient;
     }
 }
 

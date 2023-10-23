@@ -1,11 +1,12 @@
 package fr.butinfo.sae101.parser.objects;
 
+import fr.butinfo.sae101.parser.scene.SceneObjects;
 import fr.butinfo.sae101.triplet.Triplet;
 
 /**
  * The type Sphere.
  */
-public class Sphere extends SceneObject {
+public class Sphere extends SceneObjects {
     private double radius;
 
     /**
@@ -16,8 +17,9 @@ public class Sphere extends SceneObject {
      * @param diffuseColor  the diffuse color
      * @param specularColor the specular color
      */
-    public Sphere(Triplet position, double radius, Triplet diffuseColor, Triplet specularColor) {
-        super(position, diffuseColor, specularColor);
+
+    public Sphere(Triplet position, double radius, Triplet diffuseColor, Triplet specularColor, int shininess) {
+        super(position, diffuseColor, specularColor, shininess);
         this.radius = radius;
     }
 }

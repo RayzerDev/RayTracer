@@ -35,7 +35,7 @@ public interface Builder {
      *
      * @param sceneObj the scene obj
      */
-    void addObject(SceneObject sceneObj);
+    void addObject(SceneObjects sceneObj);
 
     /**
      * Build scene.
