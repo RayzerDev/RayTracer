@@ -17,6 +17,11 @@ public class Color {
     public void setCoor(Triplet coor) {
         this.coor = coor;
     }
+
+    protected Color add(Color color){
+        return new Color(getCoor().add(color.getCoor()));
+    }
+
     @Override
     public String toString() {
         return coor.toString();
