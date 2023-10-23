@@ -1,5 +1,6 @@
 package fr.butinfo.sae101.parser.scene;
 
+import fr.butinfo.sae101.parser.Parser;
 import fr.butinfo.sae101.triplet.Triplet;
 
 /**
@@ -9,6 +10,8 @@ public abstract class SceneObjects {
     private Triplet position;
     private Triplet diffuseColor;
     private Triplet specularColor;
+
+    SceneBuilder sceneBuilder = new SceneBuilder();
 
     /**
      * Instantiates a new Scene object.
@@ -48,6 +51,24 @@ public abstract class SceneObjects {
      */
     public Triplet getSpecularColor() {
         return specularColor;
+    }
+
+    /**
+     * Sets diffuse color.
+     *
+     * @param diffuseColor the diffuse color
+     */
+    public void setDiffuseColor(Triplet diffuseColor) {
+        this.diffuseColor = Parser.sceneBuilder.getDiffuse().getCoor();
+    }
+
+    /**
+     * Sets specular color.
+     *
+     * @param specularColor the specular color
+     */
+    public void setSpecularColor(Triplet specularColor) {
+        this.specularColor = specularColor;
     }
 }
 

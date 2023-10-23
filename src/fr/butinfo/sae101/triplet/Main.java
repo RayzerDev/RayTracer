@@ -1,7 +1,11 @@
 package fr.butinfo.sae101.triplet;
 
+import fr.butinfo.sae101.parser.Parser;
+
+import java.io.FileNotFoundException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Triplet t1 = new Triplet(1.0, 2.0, 3.0);
         Triplet t2 = new Triplet(4.0, 5.0, 6.0);
         Triplet t3 = new Triplet(2.0, 3.0, 5.0);
@@ -47,5 +51,8 @@ public class Main {
         System.out.println(v1.vectorProduct(v2));
         System.out.println(v1.length());
         System.out.println(v1.normalize());
+
+        Parser pars = new Parser("src/main/resources/texte.txt");
+
     }
 }
