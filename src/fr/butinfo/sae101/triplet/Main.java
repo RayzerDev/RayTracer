@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Triplet t1 = new Triplet(1.0, 2.0, 3.0);
         Triplet t2 = new Triplet(4.0, 5.0, 6.0);
+        Triplet t3 = new Triplet(2.0, 3.0, 5.0);
 
         Triplet add = t1.add(t2);
         Triplet sub = t2.sub(t1);
@@ -25,5 +26,11 @@ public class Main {
         System.out.println("Produit Schur: " + schur_prod);
         System.out.println("Longueur: " + length);
         System.out.println("Normalisation: " + norm);
+
+        Vector v1 = new Vector(t1);
+        Point p1 = new Point(t2);
+        Color c1 = new Color(t3);
+
+
     }
 }
