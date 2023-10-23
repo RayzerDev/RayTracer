@@ -23,4 +23,6 @@ git clone https://gitlab.univ-artois.fr/anthony_rolland/sae1.01-groupe13.git
 - Damien Allaert [@damien_allaert](mailto:damien_allaert@ens.univ-artois.fr)
         
 ## Diagramme de classe
+Nous mettrons ici les diagrammes de classes en fonction de notre avancement dans le projet.
+- Jour 1 (Lundi 23 octobre):
 ![image](/ressources/diagram.png)
