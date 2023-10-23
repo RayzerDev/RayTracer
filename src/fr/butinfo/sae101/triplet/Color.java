@@ -18,15 +18,15 @@ public class Color {
         this.coor = coor;
     }
 
-    protected Color add(Color color){
+    public Color add(Color color){
         return new Color(getCoor().add(color.getCoor()));
     }
 
-    protected Color multiply(double scalar){
+    public Color multiply(double scalar){
         return new Color(getCoor().multiply(scalar));
     }
 
-    protected Color schurProduct(Color color){
+    public Color schurProduct(Color color){
         return new Color(getCoor().schurProduct(color.getCoor()));
     }
 

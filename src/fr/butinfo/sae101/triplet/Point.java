@@ -17,11 +17,11 @@ public class Point {
         this.coor = coor;
     }
 
-    protected Vector sub(Point point){
+    public Vector sub(Point point){
         return new Vector(coor.sub(point.getCoor()));
     }
 
-    protected Point multiply(double scalar){
+    public Point multiply(double scalar){
         return new Point(coor.multiply(scalar));
     }
 

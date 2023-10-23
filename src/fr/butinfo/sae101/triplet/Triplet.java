@@ -35,27 +35,27 @@ public class Triplet {
         this.z = z;
     }
 
-    protected Triplet add(Triplet trip){
+    public Triplet add(Triplet trip){
         return new Triplet(getX() + trip.getX(),
                 getY() + trip.getY(),
                 getZ() + trip.getZ());
     }
-    protected Triplet sub(Triplet trip){
+    public Triplet sub(Triplet trip){
         return new Triplet(getX() - trip.getX(),
                 getY() - trip.getY(),
                 getZ() - trip.getZ());
     }
-    protected Triplet multiply(double scalar) {
+    public Triplet multiply(double scalar) {
         return new Triplet(getX() * scalar,
                 getY() * scalar,
                 getZ() * scalar);
     }
-    protected double scalarProduct(Triplet trip) {
+    public double scalarProduct(Triplet trip) {
         return getX() * trip.getX() +
                 getY() * trip.getY() +
                 getZ() * trip.getZ() ;
     }
-    protected Triplet vectorProduct(Triplet trip){
+    public Triplet vectorProduct(Triplet trip){
         return new Triplet(getY() * trip.getZ()
                 - getZ() * trip.getY(),
 
@@ -66,17 +66,17 @@ public class Triplet {
                 - getY() * trip.getX()
                 );
     }
-    protected Triplet schurProduct(Triplet trip){
+    public Triplet schurProduct(Triplet trip){
         return new Triplet(getX() * trip.getX(),
                 getY() * trip.getY(),
                 getZ() * trip.getZ());
     }
-    protected double length() {
+    public double length() {
         return Math.sqrt(Math.pow(getX(),2) +
                 Math.pow(getY(),2) +
                 Math.pow(getZ(),2)) ;
     }
-    protected Triplet normalize() {
+    public Triplet normalize() {
         return multiply(1/length());
     }
 

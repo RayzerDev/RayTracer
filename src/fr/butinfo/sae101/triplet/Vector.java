@@ -18,35 +18,35 @@ public class Vector {
         this.coor = coor;
     }
 
-    protected Point add(Point point){
+    public Point add(Point point){
         return new Point(coor.add(point.getCoor()));
     }
 
-    protected Vector add(Vector vector){
+    public Vector add(Vector vector){
         return new Vector(coor.add(vector.getCoor()));
     }
 
-    protected Vector sub(Vector vector){
+    public Vector sub(Vector vector){
         return new Vector(coor.sub(vector.getCoor()));
     }
 
-    protected Vector multiply(double scalar){
+    public Vector multiply(double scalar){
         return new Vector(coor.multiply(scalar));
     }
 
-    protected double scalarProduct(Vector vector){
+    public double scalarProduct(Vector vector){
         return coor.scalarProduct(vector.getCoor());
     }
 
-    protected Vector vectorProduct(Vector vector){
+    public Vector vectorProduct(Vector vector){
         return new Vector(coor.vectorProduct(vector.getCoor()));
     }
 
-    protected double length(){
+    public double length(){
         return coor.length();
     }
 
-    protected Vector normalize(){
+    public Vector normalize(){
         return new Vector(coor.normalize());
     }
 
