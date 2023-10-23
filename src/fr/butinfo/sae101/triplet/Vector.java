@@ -46,6 +46,9 @@ public class Vector {
         return coor.length();
     }
 
+    protected Vector normalize(){
+        return new Vector(coor.normalize());
+    }
 
     @Override
     public String toString() {
