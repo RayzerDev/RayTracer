@@ -50,6 +50,11 @@ public class Triplet {
                 getY() * scalar,
                 getZ() * scalar);
     }
+    protected double scalarProduct(Triplet trip) {
+        return getX() * trip.getX() +
+                getY() * trip.getY() +
+                getZ() * trip.getZ() ;
+    }
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
     }
