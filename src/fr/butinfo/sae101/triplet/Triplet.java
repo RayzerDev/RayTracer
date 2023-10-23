@@ -55,6 +55,17 @@ public class Triplet {
                 getY() * trip.getY() +
                 getZ() * trip.getZ() ;
     }
+    protected Triplet vectorProduct(Triplet trip){
+        return new Triplet(getY() * trip.getZ()
+                - getZ() * trip.getY(),
+
+                getZ() * trip.getX()
+                - getX() * trip.getZ(),
+
+                getX() * trip.getY()
+                - getY() * trip.getX()
+                );
+    }
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
     }
