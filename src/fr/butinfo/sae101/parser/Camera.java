@@ -77,4 +77,13 @@ public class Camera {
     public void setFov(int fov) {
         this.fov = fov;
     }
+
+    @Override
+    public String toString() {
+        return "Camera " +
+                "eye position : " + lookFrom +
+                ", point aim by eye : " + lookAt +
+                "eye's up direction : " + up +
+                ", field of view : " + fov;
+    }
 }
