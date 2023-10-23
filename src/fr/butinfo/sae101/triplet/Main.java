@@ -41,5 +41,11 @@ public class Main {
         System.out.println("Test Vecteur: ");
         System.out.println(v1.add(p1));
         System.out.println(v1.add(v2));
+        System.out.println(v1.sub(v2));
+        System.out.println(v1.multiply(2));
+        System.out.println(v1.scalarProduct(v2));
+        System.out.println(v1.vectorProduct(v2));
+        System.out.println(v1.length());
+        System.out.println(v1.normalize());
     }
 }
