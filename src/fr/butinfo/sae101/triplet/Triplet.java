@@ -35,10 +35,10 @@ public class Triplet {
         this.z = z;
     }
 
-    private void add(Triplet trip){
-        setX(getX()+trip.getX());
-        setY(getY()+trip.getY());
-        setZ(getZ()+trip.getZ());
+    protected Triplet add(Triplet trip){
+        return new Triplet(getX()+trip.getX(),
+                getY()+trip.getY(),
+                getZ()+trip.getZ());
     }
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
