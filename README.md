@@ -1,4 +1,4 @@
-# <p align="center">SAE 1.01 Réalisation d'un lanceur de rayons</p>
+# SAE 1.01 Réalisation d'un lanceur de rayons
 
 SAE 1.01 : Réalisation d'une application. Nous devons créer un lanceur de rayons qui permet de générer une image à partir d'un texte.
 
