@@ -8,6 +8,7 @@ public class Main {
         Triplet add = t1.add(t2);
         Triplet sub = t2.sub(t1);
         Triplet mult_sca = t1.multiply(2.0);
+        double scalar = t1.scalarProduct(t2);
 
         System.out.println(t1);
         System.out.println(t2);
@@ -15,5 +16,6 @@ public class Main {
         System.out.println("Addition: " + add);
         System.out.println("Soustraction: " + sub);
         System.out.println("Multiplication: " + mult_sca);
+        System.out.println("Scalaire: " + scalar);
     }
 }
