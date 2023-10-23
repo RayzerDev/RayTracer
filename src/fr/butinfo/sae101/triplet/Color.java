@@ -26,6 +26,10 @@ public class Color {
         return new Color(getCoor().multiply(scalar));
     }
 
+    protected Color schurProduct(Color color){
+        return new Color(getCoor().schurProduct(color.getCoor()));
+    }
+
     @Override
     public String toString() {
         return coor.toString();
