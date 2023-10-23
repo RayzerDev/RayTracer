@@ -11,6 +11,7 @@ public class Main {
         double scalar = t1.scalarProduct(t2);
         Triplet vect_prod = t1.vectorProduct(t2);
         Triplet schur_prod = t1.schurProduct(t2);
+        double length = t1.length();
 
         System.out.println(t1);
         System.out.println(t2);
@@ -21,5 +22,6 @@ public class Main {
         System.out.println("Scalaire: " + scalar);
         System.out.println("Produit vectoriel: " + vect_prod);
         System.out.println("Produit Schur: " + schur_prod);
+        System.out.println("Longueur: " + length);
     }
 }
