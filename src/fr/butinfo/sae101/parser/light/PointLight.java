@@ -1,10 +1,11 @@
 package fr.butinfo.sae101.parser.light;
-
+import fr.butinfo.sae101.triplet.Point;
+import fr.butinfo.sae101.triplet.Color;
 /**
  * The type Point ligth.
  * @author damien.allaert
  */
-public class PointLigth extends Light{
+public class PointLight extends Light{
 
     /**
      * Instantiates a new Point ligth.
@@ -12,7 +13,7 @@ public class PointLigth extends Light{
      * @param point the point
      * @param color the color
      */
-    public PointLigth(Point point, Couleur color){
-        super(point, color);
+    public PointLight(Point point, Color color){
+        super(point.getCoor(), color);
     }
 }
