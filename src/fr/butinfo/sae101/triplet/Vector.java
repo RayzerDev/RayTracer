@@ -42,6 +42,11 @@ public class Vector {
         return new Vector(coor.vectorProduct(vector.getCoor()));
     }
 
+    protected double length(){
+        return coor.length();
+    }
+
+
     @Override
     public String toString() {
         return coor.toString();
