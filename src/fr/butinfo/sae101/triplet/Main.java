@@ -28,9 +28,11 @@ public class Main {
         System.out.println("Normalisation: " + norm);
 
         Vector v1 = new Vector(t1);
+        Vector v2 = new Vector(1,4,7);
         Point p1 = new Point(t2);
         Color c1 = new Color(t3);
 
-
+        System.out.println(v1.add(p1));
+        System.out.println(v1.add(v2));
     }
 }
