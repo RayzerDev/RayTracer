@@ -22,6 +22,10 @@ public class Color {
         return new Color(getCoor().add(color.getCoor()));
     }
 
+    protected Color multiply(double scalar){
+        return new Color(getCoor().multiply(scalar));
+    }
+
     @Override
     public String toString() {
         return coor.toString();
