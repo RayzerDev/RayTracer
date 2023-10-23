@@ -18,4 +18,9 @@ public class Vector {
         this.coor = coor;
     }
 
+
+    @Override
+    public String toString() {
+        return coor.toString();
+    }
 }

@@ -16,5 +16,9 @@ public class Point {
     public void setCoor(Triplet coor) {
         this.coor = coor;
     }
+    @Override
+    public String toString() {
+        return coor.toString();
+    }
 
 }
