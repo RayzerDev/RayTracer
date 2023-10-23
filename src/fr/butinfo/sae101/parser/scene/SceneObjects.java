@@ -1,5 +1,7 @@
 package fr.butinfo.sae101.parser.scene;
 
+import fr.butinfo.sae101.triplet.Triplet;
+
 /**
  * The type Scene object.
  */
@@ -15,7 +17,7 @@ public abstract class SceneObjects {
      * @param diffuseColor  the diffuse color
      * @param specularColor the specular color
      */
-    public SceneObject(Triplet position, Triplet diffuseColor, Triplet specularColor) {
+    public SceneObjects(Triplet position, Triplet diffuseColor, Triplet specularColor) {
         this.position = position;
         this.diffuseColor = diffuseColor;
         this.specularColor = specularColor;
