@@ -38,6 +38,10 @@ public class Vector {
         return coor.scalarProduct(vector.getCoor());
     }
 
+    protected Vector vectorProduct(Vector vector){
+        return new Vector(coor.vectorProduct(vector.getCoor()));
+    }
+
     @Override
     public String toString() {
         return coor.toString();
