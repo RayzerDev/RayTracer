@@ -2,8 +2,8 @@ package fr.butinfo.sae101.parser.scene;
 
 import fr.butinfo.sae101.parser.Camera;
 import fr.butinfo.sae101.parser.light.Light;
+import fr.butinfo.sae101.parser.objects.SceneObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +18,7 @@ public class Scene {
 
     private List<Light> light;
 
-    private List<SceneObjects> sceneobj;
+    private List<SceneObject> sceneobj;
 
     /**
      * Instantiates a new Scene.
@@ -29,7 +29,7 @@ public class Scene {
      * @param light    the light
      * @param sceneobj the sceneobj
      */
-    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj) {
+    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObject> sceneobj) {
         this.camera = camera;
         this.height = height;
         this.width = width;
@@ -60,7 +60,7 @@ public class Scene {
      *
      * @return the sceneobj
      */
-    public List<SceneObjects> getSceneobj() {
+    public List<SceneObject> getSceneobj() {
         return sceneobj;
     }
 

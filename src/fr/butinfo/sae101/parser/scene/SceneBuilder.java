@@ -2,6 +2,7 @@ package fr.butinfo.sae101.parser.scene;
 
 import fr.butinfo.sae101.parser.Camera;
 import fr.butinfo.sae101.parser.light.Light;
+import fr.butinfo.sae101.parser.objects.SceneObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class SceneBuilder implements Builder{
 
     private List<Light> lights= new ArrayList<>();
 
-    private List<SceneObjects> sceneObjs= new ArrayList<>();
+    private List<SceneObject> sceneObjs= new ArrayList<>();
 
     @Override
     public void setCamera(Camera camera) {
@@ -34,7 +35,7 @@ public class SceneBuilder implements Builder{
     }
 
     @Override
-    public void addObject(SceneObjects sceneObj) {
+    public void addObject(SceneObject sceneObj) {
         sceneObjs.add(sceneObj);
     }
 
