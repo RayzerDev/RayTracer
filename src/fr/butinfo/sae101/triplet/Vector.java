@@ -26,6 +26,10 @@ public class Vector {
         return new Vector(coor.add(vector.getCoor()));
     }
 
+    protected Vector sub(Vector vector){
+        return new Vector(coor.sub(vector.getCoor()));
+    }
+
     @Override
     public String toString() {
         return coor.toString();
