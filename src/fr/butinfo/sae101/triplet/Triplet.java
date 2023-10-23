@@ -71,6 +71,11 @@ public class Triplet {
                 getY() * trip.getY(),
                 getZ() * trip.getZ());
     }
+    protected double length() {
+        return Math.sqrt(Math.pow(getX(),2) +
+                Math.pow(getY(),2) +
+                Math.pow(getZ(),2)) ;
+    }
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
     }
