@@ -1,5 +1,7 @@
 package fr.butinfo.sae101.parser.objects;
 
+import fr.butinfo.sae101.triplet.Triplet;
+
 public class Plane extends SceneObject {
     private Triplet normal;
 
@@ -7,5 +9,4 @@ public class Plane extends SceneObject {
         super(position, diffuseColor, specularColor);
         this.normal = normal.normalize();
     }
-
 }

@@ -1,5 +1,7 @@
 package fr.butinfo.sae101.parser.objects;
 
+import fr.butinfo.sae101.triplet.Triplet;
+
 public abstract class SceneObject {
     private Triplet position;
     private Triplet diffuseColor;

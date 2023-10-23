@@ -1,5 +1,7 @@
 package fr.butinfo.sae101.parser.objects;
 
+import fr.butinfo.sae101.triplet.Triplet;
+
 public class Sphere extends SceneObject {
     private double radius;
 
