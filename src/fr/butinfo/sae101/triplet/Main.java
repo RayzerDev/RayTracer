@@ -1,6 +1,14 @@
 package fr.butinfo.sae101.triplet;
 
+/**
+ * The type Main.
+ */
 public class Main {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         Triplet t1 = new Triplet(1.0, 2.0, 3.0);
         Triplet t2 = new Triplet(4.0, 5.0, 6.0);
