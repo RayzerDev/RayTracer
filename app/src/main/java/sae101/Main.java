@@ -1,4 +1,9 @@
-package fr.butinfo.sae101.triplet;
+package sae101;
+
+import sae101.triplet.Color;
+import sae101.triplet.Point;
+import sae101.triplet.Triplet;
+import sae101.triplet.Vector;
 
 /**
  * The type Main.

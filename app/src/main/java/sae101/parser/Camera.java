@@ -1,6 +1,6 @@
-package fr.butinfo.sae101.parser;
+package sae101.parser;
 
-import fr.butinfo.sae101.triplet.Vector;
+import sae101.triplet.Vector;
 
 /**
  * The type Camera.
@@ -31,6 +31,22 @@ public class Camera {
         this.lookAt = lookAt;
         this.up = up;
         this.fov = fov;
+    }
+
+    public Vector getW(){
+        return lookFrom.sub(lookAt).normalize();
+    }
+
+    public Vector getU(){
+        return up.vectorProduct(getW()).normalize();
+    }
+
+    public Vector getV(){
+        return getW().vectorProduct(getU()).normalize();
+    }
+
+    public double getFovR(){
+        return ((fov*Math.PI)/180);
     }
 
     /**

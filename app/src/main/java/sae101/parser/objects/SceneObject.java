@@ -1,6 +1,6 @@
-package fr.butinfo.sae101.parser.objects;
+package sae101.parser.objects;
 
-import fr.butinfo.sae101.triplet.Triplet;
+import sae101.triplet.Triplet;
 
 /**
  * The type Scene object.

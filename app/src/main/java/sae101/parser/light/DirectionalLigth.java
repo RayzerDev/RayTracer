@@ -1,7 +1,7 @@
-package fr.butinfo.sae101.parser.light;
+package sae101.parser.light;
 
-import fr.butinfo.sae101.triplet.Color;
-import fr.butinfo.sae101.triplet.Vector;
+import sae101.triplet.Color;
+import sae101.triplet.Vector;
 
 /**
  * The type Directional ligth.
