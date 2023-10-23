@@ -1,5 +1,8 @@
 package fr.butinfo.sae101.parser.light;
 
+import fr.butinfo.sae101.triplet.Color;
+import fr.butinfo.sae101.triplet.Triplet;
+
 /**
  * The type Light.
  * @author damien.allaert
@@ -8,7 +11,7 @@ public abstract class Light {
 
     private Triplet coordinate;
 
-    private Couleur color;
+    private Color color;
 
     /**
      * Instantiates a new Light.
@@ -16,7 +19,7 @@ public abstract class Light {
      * @param coordinate the coordinate
      * @param color      the color
      */
-    public Light(Triplet coordinate, Couleur color){
+    public Light(Triplet coordinate, Color color){
         this.coordinate = coordinate;
         this.color = color;
     }
@@ -35,7 +38,7 @@ public abstract class Light {
      *
      * @return the color
      */
-    public Couleur getColor() {
+    public Color getColor() {
         return color;
     }
 
@@ -53,7 +56,7 @@ public abstract class Light {
      *
      * @param color the color
      */
-    public void setColor(Couleur color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 }
