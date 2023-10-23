@@ -76,6 +76,10 @@ public class Triplet {
                 Math.pow(getY(),2) +
                 Math.pow(getZ(),2)) ;
     }
+    protected Triplet normalize() {
+        return multiply(1/length());
+    }
+
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
     }
