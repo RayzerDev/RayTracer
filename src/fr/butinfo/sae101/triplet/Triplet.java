@@ -40,6 +40,11 @@ public class Triplet {
                 getY()+trip.getY(),
                 getZ()+trip.getZ());
     }
+    protected Triplet sub(Triplet trip){
+        return new Triplet(getX()-trip.getX(),
+                getY()-trip.getY(),
+                getZ()-trip.getZ());
+    }
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
     }
