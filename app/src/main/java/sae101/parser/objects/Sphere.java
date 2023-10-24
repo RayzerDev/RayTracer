@@ -1,7 +1,7 @@
-package fr.butinfo.sae101.parser.objects;
+package sae101.parser.objects;
 
-import fr.butinfo.sae101.parser.scene.SceneObjects;
-import fr.butinfo.sae101.triplet.Triplet;
+import sae101.parser.scene.SceneObjects;
+import sae101.triplet.Triplet;
 
 /**
  * The type Sphere.

@@ -1,9 +1,11 @@
-package fr.butinfo.sae101.parser.scene;
+package sae101.parser.scene;
 
-import fr.butinfo.sae101.parser.Camera;
-import fr.butinfo.sae101.parser.light.Light;
-import fr.butinfo.sae101.triplet.Color;
-import fr.butinfo.sae101.triplet.Point;
+import sae101.parser.Camera;
+import sae101.parser.light.Light;
+import sae101.triplet.Color;
+import sae101.triplet.Point;
+import sae101.parser.scene.Scene;
+import sae101.parser.scene.SceneObjects;
 
 import java.util.ArrayList;
 import java.util.List;

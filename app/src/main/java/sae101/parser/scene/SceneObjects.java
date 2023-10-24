@@ -1,7 +1,7 @@
-package fr.butinfo.sae101.parser.scene;
+package sae101.parser.scene;
 
-import fr.butinfo.sae101.parser.Parser;
-import fr.butinfo.sae101.triplet.Triplet;
+import sae101.parser.Parser;
+import sae101.triplet.Triplet;
 
 /**
  * The type Scene object.

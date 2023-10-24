@@ -26,5 +26,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'sae301.App'
+    mainClass = 'sae101.Main'
 }

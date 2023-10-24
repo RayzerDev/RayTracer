@@ -1,4 +1,4 @@
-package fr.butinfo.sae101.triplet;
+package sae101.triplet;
 
 /**
  * The type Vector.

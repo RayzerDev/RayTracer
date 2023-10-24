@@ -1,6 +1,11 @@
-package fr.butinfo.sae101.triplet;
+package sae101;
 
-<<<<<<< HEAD:src/fr/butinfo/sae101/Main.java
+import sae101.triplet.Color;
+import sae101.triplet.Point;
+import sae101.triplet.Triplet;
+import sae101.triplet.Vector;
+import sae101.parser.Parser;
+import java.io.FileNotFoundException;
 /**
  * The type Main.
  */
@@ -10,15 +15,7 @@ public class Main {
      *
      * @param args the input arguments
      */
-    public static void main(String[] args) {
-=======
-import fr.butinfo.sae101.parser.Parser;
-
-import java.io.FileNotFoundException;
-
-public class Main {
     public static void main(String[] args) throws FileNotFoundException {
->>>>>>> parserDam:src/fr/butinfo/sae101/triplet/Main.java
         Triplet t1 = new Triplet(1.0, 2.0, 3.0);
         Triplet t2 = new Triplet(4.0, 5.0, 6.0);
         Triplet t3 = new Triplet(2.0, 3.0, 5.0);
