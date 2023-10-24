@@ -1,6 +1,6 @@
-package fr.butinfo.sae101.parser.light;
-import fr.butinfo.sae101.triplet.Point;
-import fr.butinfo.sae101.triplet.Color;
+package sae101.parser.light;
+import sae101.triplet.Point;
+import sae101.triplet.Color;
 /**
  * The type Point ligth.
  * @author damien.allaert

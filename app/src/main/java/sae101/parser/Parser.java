@@ -1,15 +1,9 @@
-package fr.butinfo.sae101.parser;
+package sae101.parser;
 
-import fr.butinfo.sae101.parser.light.DirectionalLigth;
-import fr.butinfo.sae101.parser.light.PointLight;
-import fr.butinfo.sae101.parser.objects.Sphere;
-import fr.butinfo.sae101.parser.scene.SceneBuilder;
-import fr.butinfo.sae101.parser.scene.Scene;
-import fr.butinfo.sae101.parser.scene.SceneObjects;
-import fr.butinfo.sae101.triplet.Color;
-import fr.butinfo.sae101.triplet.Point;
-import fr.butinfo.sae101.triplet.Triplet;
-import fr.butinfo.sae101.triplet.Vector;
+import sae101.parser.light.*;
+import sae101.parser.objects.Sphere;
+import sae101.parser.scene.*;
+import sae101.triplet.*;
 
 import java.io.*;
 import java.util.InputMismatchException;

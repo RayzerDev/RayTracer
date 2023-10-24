@@ -1,11 +1,9 @@
-package fr.butinfo.sae101.parser.scene;
+package sae101.parser.scene;
 
-import fr.butinfo.sae101.parser.Camera;
-import fr.butinfo.sae101.parser.Parser;
-import fr.butinfo.sae101.parser.light.Light;
-import fr.butinfo.sae101.parser.objects.SceneObject;
-import fr.butinfo.sae101.triplet.Color;
-import fr.butinfo.sae101.triplet.Point;
+import sae101.parser.Camera;
+import sae101.parser.light.Light;
+import sae101.triplet.Color;
+import sae101.triplet.Point;
 
 import java.util.List;
 
@@ -35,7 +33,6 @@ public class Scene {
      * @param width    the width
      * @param light    the light
      * @param sceneobj the sceneobj
-     * @param ambient  the ambient
      */
     public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj, Color ambient, List<Point> points) {
         this.camera = camera;
