@@ -10,19 +10,37 @@ import java.io.*;
 import java.util.InputMismatchException;
 
 
+/**
+ * The type Parser.
+ */
 public class Parser {
 
+    /**
+     * The constant sceneBuilder.
+     */
     public static SceneBuilder sceneBuilder = new SceneBuilder();
 
     private File file;
 
     private BufferedReader in;
 
+    /**
+     * Instantiates a new Parser.
+     *
+     * @param path the path
+     * @throws FileNotFoundException the file not found exception
+     */
     public Parser(String path) throws FileNotFoundException {
         this.file = new File(path);
         this.in = new BufferedReader(new FileReader(file));
     }
 
+    /**
+     * Build scene.
+     *
+     * @return the scene
+     * @throws IOException the io exception
+     */
     public Scene build() throws IOException {
         in.lines().forEach((line)->{
             String[] lineSplit = line.split(" ");
@@ -102,5 +120,14 @@ public class Parser {
         });
         in.close();
         return sceneBuilder.build();
+    }
+
+    /**
+     * Gets file.
+     *
+     * @return the file
+     */
+    public File getFile() {
+        return file;
     }
 }
