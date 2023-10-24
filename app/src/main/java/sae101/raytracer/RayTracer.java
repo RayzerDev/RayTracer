@@ -27,9 +27,11 @@ public class RayTracer {
         this.camera=camera;
     }
 
+
     public double getPixelWidth(){
         return  camera.getPixelHeight()*(imgWidth/imgHeight);
     }
+
 
     public void view(String nameFileOutPut){
         BufferedImage img = new BufferedImage(imgWidth, imgHeight, BufferedImage.TYPE_INT_RGB);

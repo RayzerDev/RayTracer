@@ -1,5 +1,6 @@
 package sae101.parser;
 
+import sae101.parser.scene.Scene;
 import sae101.triplet.Vector;
 
 /**
