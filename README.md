@@ -15,6 +15,10 @@ SAE 1.01 : Réalisation d'une application. Nous devons créer un lanceur de rayo
 ```bash
 git clone https://gitlab.univ-artois.fr/anthony_rolland/sae1.01-groupe13.git
 ```
+Vous choisissez une forme à génerer avec un fichier texte donné en argument.
+```bash
+bash scripts/exec.sh votreforme.txt
+```
 
 ## 🙇 Auteurs
 - Louis Karamucki: [@louis_karamucki](mailto:louis_karamucki@ens.univ-artois.fr)
