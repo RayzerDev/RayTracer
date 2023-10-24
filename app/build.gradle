@@ -26,5 +26,12 @@ dependencies {
 
 application {
     // Define the main class for the application.
+    apply plugin: "java"
     mainClass = 'sae101.Main'
+
+    run {
+        if (project.hasProperty('inputFile')) {
+            args = [project.getProperty('inputFile')]
+        }
+    }
 }
