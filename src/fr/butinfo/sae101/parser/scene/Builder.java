@@ -2,7 +2,6 @@ package fr.butinfo.sae101.parser.scene;
 
 import fr.butinfo.sae101.parser.Camera;
 import fr.butinfo.sae101.parser.light.Light;
-import fr.butinfo.sae101.parser.objects.SceneObject;
 
 /**
  * The interface Builder.

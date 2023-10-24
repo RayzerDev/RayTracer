@@ -3,6 +3,7 @@ package fr.butinfo.sae101.parser;
 import fr.butinfo.sae101.parser.light.DirectionalLigth;
 import fr.butinfo.sae101.parser.light.PointLight;
 import fr.butinfo.sae101.parser.objects.Sphere;
+import fr.butinfo.sae101.parser.objects.Triangle;
 import fr.butinfo.sae101.parser.scene.SceneBuilder;
 import fr.butinfo.sae101.parser.scene.Scene;
 import fr.butinfo.sae101.parser.scene.SceneObjects;
@@ -84,6 +85,14 @@ public class Parser {
                 case "vertex" -> sceneBuilder.addPoint(new Point(Integer.parseInt(lineSplit[1]), Integer.parseInt(lineSplit[2]), Integer.parseInt(lineSplit[3])));
 
                 case "tri" -> {
+                    sceneBuilder.addObject(new Triangle(
+                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[1])).getCoor(),
+                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[2])).getCoor(),
+                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[3])).getCoor(),
+                            sceneBuilder.getDiffuse().getCoor(),
+                            sceneBuilder.getSpecular().getCoor(),
+                            sceneBuilder.getShininess()
+                    ));
 
                 }
 

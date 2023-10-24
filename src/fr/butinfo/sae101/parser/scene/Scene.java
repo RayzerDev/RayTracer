@@ -1,9 +1,7 @@
 package fr.butinfo.sae101.parser.scene;
 
 import fr.butinfo.sae101.parser.Camera;
-import fr.butinfo.sae101.parser.Parser;
 import fr.butinfo.sae101.parser.light.Light;
-import fr.butinfo.sae101.parser.objects.SceneObject;
 import fr.butinfo.sae101.triplet.Color;
 import fr.butinfo.sae101.triplet.Point;
 
@@ -99,6 +97,10 @@ public class Scene {
      */
     public Color getAmbient() {
         return ambient;
+    }
+
+    public Point getPoint(int index) {
+        return points.get(index);
     }
 }
 

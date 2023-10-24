@@ -7,7 +7,6 @@ import fr.butinfo.sae101.triplet.Triplet;
  * The type Scene object.
  */
 public abstract class SceneObjects {
-    private Triplet position;
     private Triplet diffuseColor;
     private Triplet specularColor;
 
@@ -18,25 +17,15 @@ public abstract class SceneObjects {
     /**
      * Instantiates a new Scene object.
      *
-     * @param position      the position
      * @param diffuseColor  the diffuse color
      * @param specularColor the specular color
      */
-    public SceneObjects(Triplet position, Triplet diffuseColor, Triplet specularColor, int shininess) {
-        this.position = position;
+    public SceneObjects(Triplet diffuseColor, Triplet specularColor, int shininess) {
         this.diffuseColor = diffuseColor;
         this.specularColor = specularColor;
         this.shininess = shininess;
     }
 
-    /**
-     * Gets position.
-     *
-     * @return the position
-     */
-    public Triplet getPosition() {
-        return position;
-    }
 
     /**
      * Gets diffuse color.
