@@ -22,8 +22,6 @@ public class Parser {
 
     private File file;
 
-    private File output;
-
     private BufferedReader in;
 
     /**
@@ -50,9 +48,9 @@ public class Parser {
             String[] lineSplit = line.split(" ");
             switch (lineSplit[0]){
 
-                case "size" -> sceneBuilder.setDimensions(Float.parseFloat(lineSplit[1]),Float.parseFloat(lineSplit[2]));
+                case "size" -> sceneBuilder.setDimensions(Integer.parseInt(lineSplit[1]),Integer.parseInt(lineSplit[2]));
 
-                case "output" -> this.output = new File(lineSplit[1]);
+                case "output" -> sceneBuilder.setOutput(new File(lineSplit[1]));
 
                 case "camera" -> sceneBuilder.setCamera(new Camera(new Vector(Double.parseDouble(lineSplit[1]),Double.parseDouble(lineSplit[2]),Double.parseDouble(lineSplit[3])),
                                 new Vector(Double.parseDouble(lineSplit[4]),Double.parseDouble(lineSplit[5]),Double.parseDouble(lineSplit[6])),
@@ -125,18 +123,5 @@ public class Parser {
         });
         in.close();
         return sceneBuilder.build();
-    }
-
-    /**
-     * Gets file.
-     *
-     * @return the file
-     */
-    public File getFile() {
-        return file;
-    }
-
-    public File getOutput() {
-        return output;
     }
 }

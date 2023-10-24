@@ -6,6 +6,7 @@ import sae101.parser.objects.Sphere;
 import sae101.triplet.Color;
 import sae101.triplet.Point;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +14,12 @@ import java.util.List;
  * The type Scene.
  */
 public class Scene {
+    private File output;
     private Camera camera;
 
-    private float height;
+    private int height;
 
-    private float width;
+    private int width;
 
     private List<Light> light;
 
@@ -38,8 +40,9 @@ public class Scene {
      * @param light    the light
      * @param sceneobj the sceneobj
      * @param ambient  the ambient
+     * @param output
      */
-    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj, Color ambient, List<Point> points, List<Color> colors) {
+    public Scene(Camera camera, int height, int width, List<Light> light, List<SceneObjects> sceneobj, Color ambient, List<Point> points, List<Color> colors, File output) {
         this.camera = camera;
         this.height = height;
         this.width = width;
@@ -48,6 +51,11 @@ public class Scene {
         this.ambient = ambient;
         this.points = points;
         this.colors = colors;
+        this.output = output;
+    }
+
+    public File getOutput() {
+        return output;
     }
 
     /**
@@ -82,7 +90,7 @@ public class Scene {
      *
      * @return the height
      */
-    public float getHeight() {
+    public int getHeight() {
         return height;
     }
 
@@ -95,7 +103,7 @@ public class Scene {
      *
      * @return the width
      */
-    public float getWidth() {
+    public int getWidth() {
         return width;
     }
 

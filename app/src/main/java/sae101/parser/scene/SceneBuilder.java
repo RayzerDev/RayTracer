@@ -4,9 +4,8 @@ import sae101.parser.Camera;
 import sae101.parser.light.Light;
 import sae101.triplet.Color;
 import sae101.triplet.Point;
-import sae101.parser.scene.Scene;
-import sae101.parser.scene.SceneObjects;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,11 +13,12 @@ import java.util.List;
  * The type Scene builder.
  */
 public class SceneBuilder implements Builder{
+    public File output;
     private Camera camera;
 
-    private float height;
+    private int height;
 
-    private float width;
+    private int width;
 
     private List<Light> lights= new ArrayList<>();
 
@@ -36,13 +36,22 @@ public class SceneBuilder implements Builder{
 
     private List<Point> points;
 
+    private List<Color> colors;
+
+    public void setOutput(File output){
+        this.output = output;
+    }
+    public File getOutput(){
+        return output;
+    }
+
     @Override
     public void setCamera(Camera camera) {
         this.camera=camera;
     }
 
     @Override
-    public void setDimensions(float height, float width) {
+    public void setDimensions(int height, int width) {
         this.height=height;
         this.width=width;
     }
@@ -156,6 +165,6 @@ public class SceneBuilder implements Builder{
 
     @Override
     public Scene build() {
-        return new Scene(camera,height,width,lights,sceneObjs,ambient, points);
+        return new Scene(camera,height,width,lights,sceneObjs,ambient, points, colors, output);
     }
 }

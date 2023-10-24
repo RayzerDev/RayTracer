@@ -20,7 +20,7 @@ public interface Builder {
      * @param height the height
      * @param width  the width
      */
-    void setDimensions(float height, float width);
+    void setDimensions(int height, int width);
 
     /**
      * Add light.

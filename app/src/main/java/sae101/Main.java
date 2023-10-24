@@ -1,7 +1,9 @@
 package sae101;
 
 import sae101.parser.Parser;
-import java.io.FileNotFoundException;
+import sae101.parser.scene.Scene;
+import sae101.raytracer.RayTracer;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,8 +20,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Path resourceDirectory = Paths.get("src","main","resources","figures");
         String path = resourceDirectory.toFile().getAbsolutePath() + "/" + args[0];
-
-        Parser pars = new Parser(path);
-        pars.build();
+        Parser pars;
+        pars = new Parser(path);
+        Scene scene = pars.build();
+        RayTracer rt = new RayTracer(scene);
+        rt.view();
     }
 }
