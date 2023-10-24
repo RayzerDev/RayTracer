@@ -29,15 +29,12 @@ public class RayTracer {
      * Instantiates a new Ray tracer.
      *
      * @param scene     the scene
-     * @param imgHeight the img height
-     * @param imgWidth  the img width
-     * @param camera    the camera
      */
-    public RayTracer(Scene scene, int imgHeight, int imgWidth, Camera camera) {
+    public RayTracer(Scene scene) {
         this.scene = scene;
-        this.imgHeight = imgHeight;
-        this.imgWidth = imgWidth;
-        this.camera=camera;
+        this.imgHeight = scene.getHeight();
+        this.imgWidth = scene.getWidth();
+        this.camera = scene.getCamera();
     }
 
 
@@ -54,12 +51,9 @@ public class RayTracer {
     /**
      * View.
      *
-     * @param nameFileOutPut the name file out put
-     * @throws FileNotFoundException the file not found exception
      */
-    public void view(String nameFileOutPut) throws FileNotFoundException {
+    public void view() {
         Color[][] colors = new Color[imgWidth][imgHeight];
-        Parser parser = new Parser(nameFileOutPut);
         for (int i=0;i<imgWidth;i++){
             for(int j = 0;j<imgHeight;j++){
                 double a = -imgWidth/2 + (i+0.5)*getPixelWidth();
@@ -81,8 +75,7 @@ public class RayTracer {
                     img.setRGB(i,j,new java.awt.Color((int) (colors[i][j].getCoor().getX()*255),(int) (colors[i][j].getCoor().getY()*255), (int) (colors[i][j].getCoor().getZ()*255)).getRGB());
                 }
             }
-            File outPutFile = new File(nameFileOutPut);
-            ImageIO.write(img,"png",outPutFile);
+            ImageIO.write(img,"png",scene.getOutput());
         }
         catch (IOException e){
             System.err.println("Erreur lors de la création du fichier : "+e.getMessage());
