@@ -25,4 +25,6 @@ git clone https://gitlab.univ-artois.fr/anthony_rolland/sae1.01-groupe13.git
 ## Diagramme de classe
 Nous mettrons ici les diagrammes de classes en fonction de notre avancement dans le projet.
 - Jour 1 (Lundi 23 octobre):
-![image](/ressources/diagram.png)
+![image](/src/main/ressources/diagram.png)
+- Jour 2 (Mardi 24 octobre:
+![image](/src/main/ressources/diagramj2.svg)
