@@ -26,6 +26,10 @@ public class Sphere extends SceneObjects {
         this.radius = radius;
     }
 
+    public double getRadius() {
+        return radius;
+    }
+
     /**
      * Gets position.
      *
