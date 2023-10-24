@@ -24,6 +24,8 @@ public class Parser {
     }
 
     public Scene build() throws IOException {
+        sceneBuilder.setDiffuse(new Color(0,0,0));
+        sceneBuilder.setSpecular(new Color(0,0,0));
         in.lines().forEach((line)->{
             String[] lineSplit = line.split(" ");
             switch (lineSplit[0]){
@@ -90,8 +92,10 @@ public class Parser {
 
                 }
 
-                case "sphere" -> sceneBuilder.addObject(new Sphere(
-                        new Triplet(Integer.parseInt(lineSplit[1]),Integer.parseInt(lineSplit[2]),Integer.parseInt(lineSplit[3])),
+                case "sphere" -> sceneBuilder.addObject(
+                        new Sphere(new Triplet(Integer.parseInt(lineSplit[1]),
+                                Integer.parseInt(lineSplit[2]),
+                                Integer.parseInt(lineSplit[3])),
                         Double.parseDouble(lineSplit[4]),
                         sceneBuilder.getDiffuse().getCoor(),
                         sceneBuilder.getSpecular().getCoor(),

@@ -20,5 +20,6 @@ public class Main {
         String path = resourceDirectory.toFile().getAbsolutePath() + "/" + args[0];
 
         Parser pars = new Parser(path);
+        pars.build();
     }
 }
