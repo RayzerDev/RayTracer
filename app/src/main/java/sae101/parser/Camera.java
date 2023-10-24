@@ -49,6 +49,14 @@ public class Camera {
         return ((fov*Math.PI)/180);
     }
 
+    public double getPixelHeight(){
+        return  Math.tan(getFovR()/2);
+    }
+
+    public double get pixelWidth(){
+
+    }
+
     /**
      * Gets look from.
      *
