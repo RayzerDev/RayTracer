@@ -1,5 +1,6 @@
 package sae101.parser;
 
+import sae101.parser.scene.Scene;
 import sae101.triplet.Vector;
 
 /**
@@ -52,11 +53,6 @@ public class Camera {
     public double getPixelHeight(){
         return  Math.tan(getFovR()/2);
     }
-
-    public double get pixelWidth(){
-
-    }
-
     /**
      * Gets look from.
      *
