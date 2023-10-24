@@ -9,6 +9,8 @@ import sae101.triplet.Triplet;
 public class Sphere extends SceneObjects {
     private double radius;
 
+    private Triplet position;
+
     /**
      * Instantiates a new Sphere.
      *
@@ -16,10 +18,30 @@ public class Sphere extends SceneObjects {
      * @param radius        the radius
      * @param diffuseColor  the diffuse color
      * @param specularColor the specular color
+     * @param shininess     the shininess
      */
     public Sphere(Triplet position, double radius, Triplet diffuseColor, Triplet specularColor, int shininess) {
-        super(position, diffuseColor, specularColor, shininess);
+        super(diffuseColor, specularColor, shininess);
+        this.position = position;
         this.radius = radius;
+    }
+
+    /**
+     * Gets position.
+     *
+     * @return the position
+     */
+    public Triplet getPosition() {
+        return position;
+    }
+
+    /**
+     * Sets position.
+     *
+     * @param position the position
+     */
+    public void setPosition(Triplet position) {
+        this.position = position;
     }
 }
 

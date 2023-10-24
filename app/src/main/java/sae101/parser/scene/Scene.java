@@ -33,6 +33,7 @@ public class Scene {
      * @param width    the width
      * @param light    the light
      * @param sceneobj the sceneobj
+     * @param ambient  the ambient
      */
     public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj, Color ambient, List<Point> points) {
         this.camera = camera;
@@ -96,6 +97,10 @@ public class Scene {
      */
     public Color getAmbient() {
         return ambient;
+    }
+
+    public Point getPoint(int index) {
+        return points.get(index);
     }
 }
 

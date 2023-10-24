@@ -2,6 +2,7 @@ package sae101.parser;
 
 import sae101.parser.light.*;
 import sae101.parser.objects.Sphere;
+import sae101.parser.objects.Triangle;
 import sae101.parser.scene.*;
 import sae101.triplet.*;
 
@@ -78,6 +79,14 @@ public class Parser {
                 case "vertex" -> sceneBuilder.addPoint(new Point(Integer.parseInt(lineSplit[1]), Integer.parseInt(lineSplit[2]), Integer.parseInt(lineSplit[3])));
 
                 case "tri" -> {
+                    sceneBuilder.addObject(new Triangle(
+                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[1])).getCoor(),
+                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[2])).getCoor(),
+                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[3])).getCoor(),
+                            sceneBuilder.getDiffuse().getCoor(),
+                            sceneBuilder.getSpecular().getCoor(),
+                            sceneBuilder.getShininess()
+                    ));
 
                 }
 

@@ -128,6 +128,10 @@ public class SceneBuilder implements Builder{
         return ambient;
     }
 
+    public Point getPoint(int index) {
+        return points.get(index);
+    }
+
     /**
      * Get obj scene objects.
      *
