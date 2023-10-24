@@ -106,7 +106,6 @@ public class RayTracer {
                     t =t1;
                 }
             }
-
         }
         return t;
     }
