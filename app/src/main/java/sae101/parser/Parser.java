@@ -73,25 +73,25 @@ public class Parser {
                 case "shininess" -> sceneBuilder.setShininess(Integer.parseInt(lineSplit[1]));
 
                 case "directional" -> {
-                    DirectionalLigth ligth = new DirectionalLigth(
+                    DirectionalLight light = new DirectionalLight(
                             new Vector(Integer.parseInt(lineSplit[1]), Integer.parseInt(lineSplit[2]), Integer.parseInt(lineSplit[3])),
                             new Color(new Triplet(Double.parseDouble(lineSplit[4]), Double.parseDouble(lineSplit[5]), Double.parseDouble(lineSplit[6])))
                     );
-                    if(ligth.getColor().getCoor().getX() > 1 || ligth.getColor().getCoor().getY() > 1 || ligth.getColor().getCoor().getZ() > 1){
+                    if(light.getColor().getCoor().getX() > 1 || light.getColor().getCoor().getY() > 1 || light.getColor().getCoor().getZ() > 1){
                         throw new InputMismatchException();
                     }
-                    sceneBuilder.addLight(ligth);
+                    sceneBuilder.addLight(light);
                 }
 
                 case "point" -> {
-                    PointLight ligth = new PointLight(
+                    PointLight light = new PointLight(
                             new Point(Integer.parseInt(lineSplit[1]), Integer.parseInt(lineSplit[2]), Integer.parseInt(lineSplit[3])),
                             new Color(new Triplet(Double.parseDouble(lineSplit[4]), Double.parseDouble(lineSplit[5]), Double.parseDouble(lineSplit[6]))
                             ));
-                    if(ligth.getColor().getCoor().getX() > 1 || ligth.getColor().getCoor().getY() > 1 || ligth.getColor().getCoor().getZ() > 1){
+                    if(light.getColor().getCoor().getX() > 1 || light.getColor().getCoor().getY() > 1 || light.getColor().getCoor().getZ() > 1){
                         throw new InputMismatchException();
                     }
-                    sceneBuilder.addLight(ligth);
+                    sceneBuilder.addLight(light);
                 }
 
                 case "maxverts" -> sceneBuilder.setMaxverts(Integer.parseInt(lineSplit[1]));
