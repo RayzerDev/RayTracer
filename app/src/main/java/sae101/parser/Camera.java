@@ -49,10 +49,10 @@ public class Camera {
     public double getFovR(){
         return ((fov*Math.PI)/180);
     }
-
     public double getPixelHeight(){
         return  Math.tan(getFovR()/2);
     }
+
     /**
      * Gets look from.
      *
@@ -108,4 +108,5 @@ public class Camera {
                 "eye's up direction : " + up +
                 ", field of view : " + fov;
     }
+
 }

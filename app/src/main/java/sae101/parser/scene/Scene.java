@@ -2,9 +2,11 @@ package sae101.parser.scene;
 
 import sae101.parser.Camera;
 import sae101.parser.light.Light;
+import sae101.parser.objects.Sphere;
 import sae101.triplet.Color;
 import sae101.triplet.Point;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,6 +23,8 @@ public class Scene {
 
     private List<SceneObjects> sceneobj;
 
+    private List<Color> colors;
+
     private Color ambient;
 
     private List<Point> points;
@@ -35,7 +39,7 @@ public class Scene {
      * @param sceneobj the sceneobj
      * @param ambient  the ambient
      */
-    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj, Color ambient, List<Point> points) {
+    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj, Color ambient, List<Point> points, List<Color> colors) {
         this.camera = camera;
         this.height = height;
         this.width = width;
@@ -43,6 +47,7 @@ public class Scene {
         this.sceneobj = sceneobj;
         this.ambient = ambient;
         this.points = points;
+        this.colors = colors;
     }
 
     /**
@@ -81,6 +86,10 @@ public class Scene {
         return height;
     }
 
+    public List<Color> getColors(){
+        return colors;
+    }
+
     /**
      * Gets width.
      *
@@ -101,6 +110,16 @@ public class Scene {
 
     public Point getPoint(int index) {
         return points.get(index);
+    }
+
+    public List<Sphere> getSphere(){
+        List<Sphere> spheres = new ArrayList<>();
+        for (SceneObjects objects:sceneobj){
+            if(objects instanceof Sphere){
+                spheres.add((Sphere) objects);
+            }
+        }
+        return spheres;
     }
 }
 
