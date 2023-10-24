@@ -22,6 +22,8 @@ public class Parser {
 
     private File file;
 
+    private File output;
+
     private BufferedReader in;
 
     /**
@@ -48,7 +50,7 @@ public class Parser {
 
                 case "size" -> sceneBuilder.setDimensions(Float.parseFloat(lineSplit[1]),Float.parseFloat(lineSplit[2]));
 
-                case "output" -> new File(lineSplit[1]);
+                case "output" -> this.output = new File(lineSplit[1]);
 
                 case "camera" -> sceneBuilder.setCamera(new Camera(new Vector(Double.parseDouble(lineSplit[1]),Double.parseDouble(lineSplit[2]),Double.parseDouble(lineSplit[3])),
                                 new Vector(Double.parseDouble(lineSplit[4]),Double.parseDouble(lineSplit[5]),Double.parseDouble(lineSplit[6])),
@@ -114,7 +116,6 @@ public class Parser {
                         sceneBuilder.getDiffuse().getCoor(),
                         sceneBuilder.getSpecular().getCoor(),
                         sceneBuilder.getShininess()));
-
             }
 
         });
@@ -129,5 +130,9 @@ public class Parser {
      */
     public File getFile() {
         return file;
+    }
+
+    public File getOutput() {
+        return output;
     }
 }
