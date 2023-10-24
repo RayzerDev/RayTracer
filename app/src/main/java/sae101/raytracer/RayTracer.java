@@ -1,5 +1,6 @@
 package sae101.raytracer;
 
+import sae101.parser.Camera;
 import sae101.parser.scene.Scene;
 import sae101.triplet.Vector;
 
@@ -12,11 +13,19 @@ public class RayTracer {
 
     private int imgWidth;
 
-    public RayTracer(Scene scene, int imgHeight, int imgWidth) {
+    private Camera camera;
+
+    public RayTracer(Scene scene, int imgHeight, int imgWidth, Camera camera) {
         this.scene = scene;
         this.imgHeight = imgHeight;
         this.imgWidth = imgWidth;
+        this.camera=camera;
     }
+
+    public double getPixelWidth(){
+        return  camera.getPixelHeight()*(imgWidth/imgHeight);
+    }
+
 
     public void view(String nameFileOutPut){
         BufferedImage img = new BufferedImage(imgWidth, imgHeight, BufferedImage.TYPE_INT_RGB);
