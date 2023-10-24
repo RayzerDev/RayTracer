@@ -22,7 +22,6 @@ public class RayTracer {
         BufferedImage img = new BufferedImage(imgWidth, imgHeight, BufferedImage.TYPE_INT_RGB);
         for (int i=0;i<imgWidth;i++){
             for(int j = 0;j<imgHeight;j++){
-                Vector w =
             }
         }
     }
