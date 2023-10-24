@@ -23,6 +23,8 @@ public class Scene {
 
     private List<SceneObjects> sceneobj;
 
+    private List<Color> colors;
+
     private Color ambient;
 
     private List<Point> points;
@@ -37,7 +39,7 @@ public class Scene {
      * @param sceneobj the sceneobj
      * @param ambient  the ambient
      */
-    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj, Color ambient, List<Point> points) {
+    public Scene(Camera camera, float height, float width, List<Light> light,  List<SceneObjects> sceneobj, Color ambient, List<Point> points, List<Color> colors) {
         this.camera = camera;
         this.height = height;
         this.width = width;
@@ -45,6 +47,7 @@ public class Scene {
         this.sceneobj = sceneobj;
         this.ambient = ambient;
         this.points = points;
+        this.colors = colors;
     }
 
     /**
@@ -81,6 +84,10 @@ public class Scene {
      */
     public float getHeight() {
         return height;
+    }
+
+    public List<Color> getColors(){
+        return colors;
     }
 
     /**
