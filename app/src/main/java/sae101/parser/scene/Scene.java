@@ -2,9 +2,11 @@ package sae101.parser.scene;
 
 import sae101.parser.Camera;
 import sae101.parser.light.Light;
+import sae101.parser.objects.Sphere;
 import sae101.triplet.Color;
 import sae101.triplet.Point;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -101,6 +103,16 @@ public class Scene {
 
     public Point getPoint(int index) {
         return points.get(index);
+    }
+
+    public List<Sphere> getSphere(){
+        List<Sphere> spheres = new ArrayList<>();
+        for (SceneObjects objects:sceneobj){
+            if(objects instanceof Sphere){
+                spheres.add((Sphere) objects);
+            }
+        }
+        return spheres;
     }
 }
 
