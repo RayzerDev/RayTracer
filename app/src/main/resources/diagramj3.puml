@@ -1,0 +1,221 @@
+@startuml
+class sae101.parser.light.PointLight {
+~ Point point
++ Point getPoint()
++ Vector getLdir()
+}
+class sae101.calculColor.LambertColorCal {
++ Color calculateColor(Sphere,Scene,Point)
+}
+class sae101.raytracer.RayTracer {
+- {static} Scene scene
+- {static} int imgHeight
+- {static} int imgWidth
+- {static} Camera camera
++ {static} double getPixelWidth()
++ {static} double getPixelHeight()
++ {static} double getRealHeight()
++ {static} double getRealWidth()
++ void view()
++ {static} double getT(Vector)
++ {static} Vector getP(int,int)
++ {static} Vector getN(int,int)
++ {static} Vector getD(int,int)
+}
+class sae101.parser.Camera {
+- Vector lookFrom
+- Vector lookAt
+- Vector up
+- int fov
++ Vector getW()
++ Vector getU()
++ Vector getV()
++ double getFovR()
++ double getPixelHeight()
++ Vector getLookFrom()
++ Vector getLookAt()
++ Vector getUp()
++ int getFov()
++ void setFov(int)
++ String toString()
+}
+interface sae101.parser.scene.Builder {
+~ void setCamera(Camera)
+~ void setDimensions(int,int)
+~ void addLight(Light)
+~ void addObject(SceneObjects)
+~ Scene build()
+}
+class sae101.calculColor.BaseColorCal {
++ Color calculateColor(Sphere,Scene,Point)
+}
+class sae101.parser.light.DirectionalLight {
++ Vector getLdir()
+}
+class sae101.parser.scene.Scene {
+- File output
+- Camera camera
+- int height
+- int width
+- List<Light> light
+- List<SceneObjects> sceneobj
+- List<Color> colors
+- Color ambient
+- List<Point> points
++ File getOutput()
++ Camera getCamera()
++ List<Light> getLight()
++ List<SceneObjects> getSceneobj()
++ int getHeight()
++ List<Color> getColors()
++ int getWidth()
++ Color getAmbient()
++ Point getPoint(int)
++ List<Sphere> getSphere()
+}
+class sae101.triplet.Point {
+- Triplet coor
++ Triplet getCoor()
++ void setCoor(Triplet)
++ Vector sub(Point)
++ Point multiply(double)
++ String toString()
+}
+class sae101.parser.objects.Sphere {
+- double radius
+- Triplet position
++ double getRadius()
++ Triplet getPosition()
++ void setPosition(Triplet)
+}
+class sae101.parser.scene.SceneBuilder {
++ File output
+- Camera camera
+- int height
+- int width
+- List<Light> lights
+- List<SceneObjects> sceneObjs
+- Color ambient
+- Color diffuse
+- Color specular
+- int shininess
+- int maxverts
+- List<Point> points
+- List<Color> colors
++ void setOutput(File)
++ File getOutput()
++ void setCamera(Camera)
++ void setDimensions(int,int)
++ void setAmbient(Color)
++ void setDiffuse(Color)
++ void setSpecular(Color)
++ void setShininess(int)
++ void setMaxverts(int)
++ int getMaxverts()
++ int getShininess()
++ Color getSpecular()
++ Color getDiffuse()
++ Color getAmbient()
++ Point getPoint(int)
++ SceneObjects getObj(int)
++ void addLight(Light)
++ void addPoint(Point)
++ void addObject(SceneObjects)
++ Scene build()
+}
+abstract class sae101.parser.scene.SceneObjects {
+- Triplet diffuseColor
+- Triplet specularColor
+- int shininess
+~ SceneBuilder sceneBuilder
++ Triplet getDiffuseColor()
++ Triplet getSpecularColor()
++ int getShininess()
++ void setDiffuseColor()
++ void setSpecularColor()
++ void setShininess(int)
+}
+class sae101.triplet.Triplet {
+- double x
+- double y
+- double z
++ double getX()
++ void setX(double)
++ double getY()
++ void setY(double)
++ double getZ()
++ void setZ(double)
++ Triplet add(Triplet)
++ Triplet sub(Triplet)
++ Triplet multiply(double)
++ double scalarProduct(Triplet)
++ Triplet vectorProduct(Triplet)
++ Triplet schurProduct(Triplet)
++ double length()
++ Triplet normalize()
++ String toString()
+}
+class sae101.Main {
++ {static} void main(String[])
+}
+class sae101.parser.objects.Triangle {
+- Triplet vertex1
+- Triplet vertex2
+- Triplet vertex3
+- Triplet normal
+}
+class sae101.triplet.Vector {
+- Triplet coor
++ Triplet getCoor()
++ void setCoor(Triplet)
++ Point add(Point)
++ Vector add(Vector)
++ Vector sub(Vector)
++ Vector multiply(double)
++ double scalarProduct(Vector)
++ Vector vectorProduct(Vector)
++ double length()
++ Vector normalize()
++ String toString()
+}
+interface sae101.calculColor.IFormLambert {
+~ Color calculateColor(Sphere,Scene,Point)
+}
+class sae101.parser.objects.Plane {
+- Triplet normal
+- Triplet positionPoint
+}
+class sae101.triplet.Color {
+- Triplet coor
++ Triplet getCoor()
++ void setCoor(Triplet)
++ Color add(Color)
++ Color multiply(double)
++ Color schurProduct(Color)
++ String toString()
+}
+class sae101.parser.Parser {
++ {static} SceneBuilder sceneBuilder
+- File file
+- BufferedReader in
++ Scene build()
+}
+abstract class sae101.parser.light.Light {
+- Triplet coordinate
+- Color color
++ Triplet getCoordinate()
++ Color getColor()
++ void setCoordinate(Triplet)
++ void setColor(Color)
+}
+
+
+sae101.parser.light.Light <|-- sae101.parser.light.PointLight
+sae101.calculColor.IFormLambert <|.. sae101.calculColor.LambertColorCal
+sae101.calculColor.IFormLambert <|.. sae101.calculColor.BaseColorCal
+sae101.parser.light.Light <|-- sae101.parser.light.DirectionalLight
+sae101.parser.scene.SceneObjects <|-- sae101.parser.objects.Sphere
+sae101.parser.scene.Builder <|.. sae101.parser.scene.SceneBuilder
+sae101.parser.scene.SceneObjects <|-- sae101.parser.objects.Triangle
+sae101.parser.scene.SceneObjects <|-- sae101.parser.objects.Plane
+@enduml
