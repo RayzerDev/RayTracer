@@ -66,8 +66,7 @@ public class RayTracer {
         for (int i=0;i<imgWidth;i++){
             for(int j = 0;j<imgHeight;j++){
                 Vector d = getD(i,j);
-                double t=-1;
-                t = getT(d, t);
+                double t = getT(d);
                 Color color = new Color(0,0,0);
                 if(t!=-1){
                     color = scene.getAmbient();
@@ -91,7 +90,6 @@ public class RayTracer {
 
     /**
      * @param d
-     * @param t
      * @return
      */
     public double getT(Vector d) {
