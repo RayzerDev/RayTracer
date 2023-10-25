@@ -20,4 +20,7 @@ public class DirectionalLight extends Light{
     }
 
 
+    public Vector getLdir(){
+        return new Vector(-getCoordinate().getX(),-getCoordinate().getY(),-getCoordinate().getZ());
+    }
 }
