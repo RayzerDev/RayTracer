@@ -92,14 +92,14 @@ public class RayTracer {
     private double getT(Vector d, double t) {
         for(Sphere sphere : scene.getSphere()){
             Vector sphereVector = new Vector(sphere.getPosition());
-            double delta = (Math.pow(camera.getLookFrom().sub(sphereVector).scalarProduct(d), 2) - (4 * camera.getLookFrom().sub(sphereVector).scalarProduct(camera.getLookFrom().sub(sphereVector))) - Math.pow(sphere.getRadius(), 2));
+            double delta = (Math.pow(2*camera.getLookFrom().sub(sphereVector).scalarProduct(d), 2) - (4 * camera.getLookFrom().sub(sphereVector).scalarProduct(camera.getLookFrom().sub(sphereVector))) - Math.pow(sphere.getRadius(), 2));
 
             if (delta==0){
-                t = -camera.getLookFrom().sub(sphereVector).scalarProduct(d)/2 ;
+                t = -2*camera.getLookFrom().sub(sphereVector).scalarProduct(d)/2 ;
             }
             else if(delta>0){
-                double t1 = -camera.getLookFrom().sub(sphereVector).scalarProduct(d)+Math.sqrt(delta)/2;
-                double t2 = -camera.getLookFrom().sub(sphereVector).scalarProduct(d)-Math.sqrt(delta)/2;
+                double t1 = -2*camera.getLookFrom().sub(sphereVector).scalarProduct(d)+Math.sqrt(delta)/2;
+                double t2 = -2*camera.getLookFrom().sub(sphereVector).scalarProduct(d)-Math.sqrt(delta)/2;
                 if (t2>0) {
                     t =t2;
                 }else if(t1>0){
