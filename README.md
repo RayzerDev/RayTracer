@@ -1,4 +1,4 @@
-# SAE 3.01 Réalisation d'un lanceur de rayons
+# SAE 3.01 Ray Tracer Implementation
 
 SAE 3.01: Implementation of an application. We need to create a ray tracer that generates an image from text.
 
