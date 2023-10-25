@@ -25,7 +25,7 @@ public class LambertColorCal implements IFormLambert{
                 Point p = ((PointLight) light).getPoint();
                 ldir = ((PointLight) light).getLdir();
             }
-         }
+        }
         return null;
     }
 
