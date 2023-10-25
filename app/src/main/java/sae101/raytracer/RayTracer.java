@@ -1,7 +1,6 @@
 package sae101.raytracer;
 
 import sae101.parser.Camera;
-import sae101.parser.Parser;
 import sae101.parser.objects.Sphere;
 import sae101.parser.scene.Scene;
 import sae101.triplet.Color;
@@ -9,8 +8,6 @@ import sae101.triplet.Vector;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -89,6 +86,11 @@ public class RayTracer {
         }
     }
 
+    /**
+     * @param d
+     * @param t
+     * @return
+     */
     private double getT(Vector d, double t) {
         for(Sphere sphere : scene.getSphere()){
             Vector sphereVector = new Vector(sphere.getPosition());
