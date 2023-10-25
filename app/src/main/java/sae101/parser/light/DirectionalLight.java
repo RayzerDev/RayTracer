@@ -19,9 +19,6 @@ public class DirectionalLight extends Light{
         super(vector.getCoor(), color);
     }
 
-    public Vector getLdir(){
-        return new Vector(-getCoordinate().getX(),-getCoordinate().getY(),-getCoordinate().getZ());
-    }
 
     public Vector getLdir(){
         return new Vector(-getCoordinate().getX(),-getCoordinate().getY(),-getCoordinate().getZ());
