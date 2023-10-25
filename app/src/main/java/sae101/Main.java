@@ -20,7 +20,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Path resourceDirectory = Paths.get("src","main","resources","figures");
         String path = resourceDirectory.toFile().getAbsolutePath() + "/" + args[0];
-        Parser pars = new Parser(path);
+        Parser pars;
+        pars = new Parser(path);
         Scene scene = pars.build();
         RayTracer rt = new RayTracer(scene);
         rt.view();
