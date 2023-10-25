@@ -51,7 +51,7 @@ public class SceneBuilder implements Builder{
     }
 
     @Override
-    public void setDimensions(int height, int width) {
+    public void setDimensions(int width, int height) {
         this.height=height;
         this.width=width;
     }

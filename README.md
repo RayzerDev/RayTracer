@@ -1,36 +1,41 @@
-# SAE 1.01 Réalisation d'un lanceur de rayons
+# SAE 3.01 Ray Tracer Implementation
 
-SAE 1.01 : Réalisation d'une application. Nous devons créer un lanceur de rayons qui permet de générer une image à partir d'un texte.
+SAE 3.01: Implementation of an application. We need to create a ray tracer that generates an image from text.
 
-### Compétences mobilisées :
-#### Compétence 1 : Réaliser un développement d’application.
-#### Compétence 2 : Optimiser des applications.
-#### Compétence 6 : Collaborer au sein d’une équipe informatique.
+### Skills Mobilized :
+#### Skill 1: Develop an application.
+#### Skill 2: Optimize applications.
+#### Skill 6: Collaborate within an IT team.
 
-## 🛠️ Outils
+## 🛠️ Tools
 - [Java](https://www.java.com/fr/)
 - [Intellij](https://www.jetbrains.com/idea/)
 
-## 🛠️ Démarrer
+## 🛠️ Start
 ```bash
 git clone https://gitlab.univ-artois.fr/anthony_rolland/sae1.01-groupe13.git
 ```
-Vous choisissez une forme à génerer avec un fichier texte donné en argument.
+You can choose a shape to generate with a given text file as an argument.
+
 ```bash
 bash scripts/exec.sh votreforme.txt
 ```
 
-## 🙇 Auteurs
+## 🙇 Authors
 - Louis Karamucki: [@louis_karamucki](mailto:louis_karamucki@ens.univ-artois.fr)
 - Romain Guiffroy: [@matteo_guiffroy](mailto:matteo_guiffroy@ens.univ-artois.fr)
 - Anthony Rolland: [@anthony_rolland](mailto:anthony_rolland@ens.univ-artois.fr)
 - Damien Allaert [@damien_allaert](mailto:damien_allaert@ens.univ-artois.fr)
         
-## Diagramme de classe
-Nous mettrons ici les diagrammes de classes en fonction de notre avancement dans le projet.
-- Jour 1 (Lundi 23 octobre):
+## Class Diagram
+We will place class diagrams here based on our progress in the project.
+
+- Day 1 (Monday, 23 octobre):
 
 ![image](app/src/main/resources/diagram.png)
-- Jour 2 (Mardi 24 octobre:
+- Day 2 (Tuesday, 24 octobre):
 
 ![image](app/src/main/resources/diagramj2.svg)
+- Day 3 (Wednesday, 25 octobre):
+
+![image](app/src/main/resources/diagramj3.svg)
