@@ -9,6 +9,7 @@ public class BaseColorCal implements IFormLambert{
 
     @Override
     public Color calculateColor(Sphere sphere, Vector vector, Vector lightDirection, Scene scene) {
+
         return null;
     }
 }
