@@ -60,14 +60,12 @@ public class RayTracer {
         Color[][] colors = new Color[imgWidth][imgHeight];
         for (int i=0;i<imgWidth;i++){
             for(int j = 0;j<imgHeight;j++){
-                double a = -getRealWidth()/2 + (i+0.5)*getPixelWidth();
-                double b = getRealHeight()/2 - (j+0.5)*camera.getPixelHeight();
-                Vector d = camera.getU().multiply(a).add(camera.getV().multiply(b)).sub(camera.getW()).normalize();
+                Vector d = getD(i,j);
                 double t=-1;
                 t = getT(d, t);
                 Color color = new Color(0,0,0);
                 if(t!=-1){
-                    color = scene.getColors().get(0);
+                    color = scene.getAmbient();
                 }
                 colors[i][j]=color;
             }
@@ -91,10 +89,12 @@ public class RayTracer {
      * @param t
      * @return
      */
-    private double getT(Vector d, double t) {
+    public double getT(Vector d, double t) {
         for(Sphere sphere : scene.getSphere()){
             Vector sphereVector = new Vector(sphere.getPosition());
-            double delta = (Math.pow(2*camera.getLookFrom().sub(sphereVector).scalarProduct(d), 2) - (4 * camera.getLookFrom().sub(sphereVector).scalarProduct(camera.getLookFrom().sub(sphereVector))) - Math.pow(sphere.getRadius(), 2));
+            double b = 2*camera.getLookFrom().sub(sphereVector).scalarProduct(d);
+            double c = camera.getLookFrom().sub(sphereVector).scalarProduct(camera.getLookFrom().sub(sphereVector)) - Math.pow(sphere.getRadius(), 2);
+            double delta = Math.pow(b,2) - 4 * c;
 
             if (delta==0){
                 t = -2*camera.getLookFrom().sub(sphereVector).scalarProduct(d)/2 ;
@@ -110,5 +110,10 @@ public class RayTracer {
             }
         }
         return t;
+    }
+    public Vector getD(int i, int j){
+        double a = -getRealWidth()/2 + (i+0.5)*getPixelWidth();
+        double b = getRealHeight()/2 - (j+0.5)*camera.getPixelHeight();
+        return camera.getU().multiply(a).add(camera.getV().multiply(b)).sub(camera.getW()).normalize();
     }
 }
