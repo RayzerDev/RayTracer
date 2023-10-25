@@ -4,6 +4,7 @@ import sae101.parser.Camera;
 import sae101.parser.objects.Sphere;
 import sae101.parser.scene.Scene;
 import sae101.triplet.Color;
+import sae101.triplet.Point;
 import sae101.triplet.Vector;
 
 import javax.imageio.ImageIO;
@@ -65,8 +66,7 @@ public class RayTracer {
         for (int i=0;i<imgWidth;i++){
             for(int j = 0;j<imgHeight;j++){
                 Vector d = getD(i,j);
-                double t=-1;
-                t = getT(d);
+                double t = getT(d);
                 Color color = new Color(0,0,0);
                 if(t!=-1){
                     color = scene.getAmbient();
@@ -125,12 +125,12 @@ public class RayTracer {
         Vector N = null;
         for(Sphere sphere : scene.getSphere()){
             Vector sphereVector = new Vector(sphere.getPosition());
-            N =getP(i,j).sub(sphereVector).normalize();
+            N = getP(i,j).sub(sphereVector).normalize();
         }
         return N;
     }
 
-    public Vector getD(int i, int j){
+    public static Vector getD(int i, int j){
         double a = -getRealWidth()/2 + (i+0.5)*getPixelWidth();
         double b = getRealHeight()/2 - (j+0.5)*getPixelHeight();
         return camera.getU().multiply(a).add(camera.getV().multiply(b)).sub(camera.getW()).normalize();
