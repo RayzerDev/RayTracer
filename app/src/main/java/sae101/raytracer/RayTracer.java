@@ -63,7 +63,7 @@ public class RayTracer {
             for(int j = 0;j<imgHeight;j++){
                 Vector d = getD(i,j);
                 double t=-1;
-                t = getT(d, t);
+                t = getT(d);
                 Color color = new Color(0,0,0);
                 if(t!=-1){
                     color = scene.getAmbient();
@@ -117,6 +117,15 @@ public class RayTracer {
 
     public Vector getP(int i, int j){
         return scene.getCamera().getLookFrom().add(getD(i,j).multiply(getT(getD(i,j))));
+    }
+
+    public Vector getN(int i, int j){
+        Vector N = null;
+        for(Sphere sphere : scene.getSphere()){
+            Vector sphereVector = new Vector(sphere.getPosition());
+            N =getP(i,j).sub(sphereVector).normalize();
+        }
+        return N;
     }
 
     public Vector getD(int i, int j){
