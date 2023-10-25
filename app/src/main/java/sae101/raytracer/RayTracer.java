@@ -15,13 +15,13 @@ import java.io.IOException;
  * The type Ray tracer.
  */
 public class RayTracer {
-    private Scene scene;
+    private static Scene scene;
 
-    private int imgHeight;
+    private static int imgHeight;
 
-    private int imgWidth;
+    private static int imgWidth;
 
-    private Camera camera;
+    private static Camera camera;
 
     /**
      * Instantiates a new Ray tracer.
@@ -41,19 +41,19 @@ public class RayTracer {
      *
      * @return the double
      */
-    public double getPixelWidth(){
+    public static double getPixelWidth(){
         return  getRealWidth()/imgWidth;
     }
 
-    public double getPixelHeight(){
+    public static double getPixelHeight(){
         return getRealHeight()/imgHeight;
     }
 
-    public double getRealHeight(){
+    public static double getRealHeight(){
         return 2*Math.tan(camera.getFovR()/2);
     }
 
-    public double getRealWidth(){
+    public static double getRealWidth(){
         return imgWidth*getPixelHeight();
     }
 
@@ -92,7 +92,7 @@ public class RayTracer {
      * @param d
      * @return
      */
-    public double getT(Vector d) {
+    public static double getT(Vector d) {
         double t = -1;
         for(Sphere sphere : scene.getSphere()){
             Vector sphereVector = new Vector(sphere.getPosition());
