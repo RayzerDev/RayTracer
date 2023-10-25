@@ -44,9 +44,16 @@ public class RayTracer {
      * @return the double
      */
     public double getPixelWidth(){
-        return  camera.getPixelHeight()*(imgWidth/imgHeight);
+        return  getRealWidth()/imgWidth;
     }
 
+    public double getRealHeight(){
+        return 2*Math.tan(camera.getFovR()/2);
+    }
+
+    public double getRealWidth(){
+        return imgWidth*(getRealHeight()/imgHeight);
+    }
 
     /**
      * View.
@@ -56,9 +63,9 @@ public class RayTracer {
         Color[][] colors = new Color[imgWidth][imgHeight];
         for (int i=0;i<imgWidth;i++){
             for(int j = 0;j<imgHeight;j++){
-                double a = -imgWidth/2 + (i+0.5)*getPixelWidth();
-                double b = -imgHeight/2 - (j+0.5)*camera.getPixelHeight();
-                Vector d = camera.getU().multiply(a).add(camera.getV().multiply(b)).normalize();
+                double a = -getRealWidth()/2 + (i+0.5)*getPixelWidth();
+                double b = getRealHeight()/2 - (j+0.5)*camera.getPixelHeight();
+                Vector d = camera.getU().multiply(a).add(camera.getV().multiply(b)).sub(camera.getW()).normalize();
                 double t=-1;
                 t = getT(d, t);
                 Color color = new Color(0,0,0);
