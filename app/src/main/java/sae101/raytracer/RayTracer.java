@@ -4,7 +4,6 @@ import sae101.parser.Camera;
 import sae101.parser.objects.Sphere;
 import sae101.parser.scene.Scene;
 import sae101.triplet.Color;
-import sae101.triplet.Point;
 import sae101.triplet.Vector;
 
 import javax.imageio.ImageIO;
