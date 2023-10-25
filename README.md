@@ -31,6 +31,9 @@ Nous mettrons ici les diagrammes de classes en fonction de notre avancement dans
 - Jour 1 (Lundi 23 octobre):
 
 ![image](app/src/main/resources/diagram.png)
-- Jour 2 (Mardi 24 octobre:
+- Jour 2 (Mardi 24 octobre):
 
 ![image](app/src/main/resources/diagramj2.svg)
+- Jour 3 (Mercredi 25 octobre):
+
+![image](app/src/main/resources/diagramj3.svg)
