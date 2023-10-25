@@ -94,7 +94,6 @@ public class RayTracer {
 
     /**
      * @param d
-     * @param t
      * @return
      */
     public static double getT(Vector d) {
