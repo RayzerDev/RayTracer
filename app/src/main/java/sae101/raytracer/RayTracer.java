@@ -125,7 +125,7 @@ public class RayTracer {
         return scene.getCamera().getLookFrom().add(getD().multiply(getT(getD())));
     }
 
-    public Vector getN(int i, int j){
+    public Vector getN(){
         Vector N = null;
         for(Sphere sphere : scene.getSphere()){
             Vector sphereVector = new Vector(sphere.getPosition());
