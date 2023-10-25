@@ -23,7 +23,7 @@ public class LambertColorCal implements IFormLambert{
             }
             else if (light instanceof PointLight){
                 Point p = ((PointLight) light).getPoint();
-                //ldir = p.sub(RayTracer.getP().getCoor().scalarProduct());
+                ldir = ((PointLight) light).getLdir();
             }
          }
         return null;
