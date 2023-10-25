@@ -13,6 +13,7 @@ import sae101.triplet.Vector;
  */
 public class PointLight extends Light{
 
+    Point point = null;
 
     /**
      * Instantiates a new Point ligth.
@@ -22,6 +23,11 @@ public class PointLight extends Light{
      */
     public PointLight(Point point, Color color){
         super(point.getCoor(), color);
+        this.point = point;
+    }
+
+    public Point getPoint(){
+        return point;
     }
 
     public Vector getLdir(){
