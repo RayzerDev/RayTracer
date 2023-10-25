@@ -68,9 +68,8 @@ public class RayTracer {
         Color[][] colors = new Color[imgWidth][imgHeight];
         for (int i=0;i<imgWidth;i++){
             for(int j = 0;j<imgHeight;j++){
-                Vector d = getD();
-                double t=-1;
-                t = getT(d);
+                Vector d = getD(i,j);
+                double t = getT(d);
                 Color color = new Color(0,0,0);
                 if(t!=-1){
                     color = scene.getAmbient();
@@ -121,28 +120,22 @@ public class RayTracer {
         return t;
     }
 
-    public static Vector getP(){
-        return scene.getCamera().getLookFrom().add(getD().multiply(getT(getD())));
+    public static Vector getP(int i, int j){
+        return scene.getCamera().getLookFrom().add(getD(i,j).multiply(getT(getD(i,j))));
     }
 
     public Vector getN(int i, int j){
         Vector N = null;
         for(Sphere sphere : scene.getSphere()){
             Vector sphereVector = new Vector(sphere.getPosition());
-            N =getP().sub(sphereVector).normalize();
+            N = getP(i,j).sub(sphereVector).normalize();
         }
         return N;
     }
 
-    public static Vector getD(){
-        double a = 0;
-        double b = 0;
-        for(int i=0;i<imgWidth;i++){
-            for(int j=0;j<imgHeight;j++){
-                a = -getRealWidth()/2 + (i+0.5)*getPixelWidth();
-                b = getRealHeight()/2 - (j+0.5)*getPixelHeight();
-            }
-        }
+    public static Vector getD(int i, int j){
+        double a = -getRealWidth()/2 + (i+0.5)*getPixelWidth();
+        double b = getRealHeight()/2 - (j+0.5)*getPixelHeight();
         return camera.getU().multiply(a).add(camera.getV().multiply(b)).sub(camera.getW()).normalize();
     }
 }
