@@ -45,12 +45,16 @@ public class RayTracer {
         return  getRealWidth()/imgWidth;
     }
 
+    public double getPixelHeight(){
+        return getRealHeight()/imgHeight;
+    }
+
     public double getRealHeight(){
         return 2*Math.tan(camera.getFovR()/2);
     }
 
     public double getRealWidth(){
-        return imgWidth*(getRealHeight()/imgHeight);
+        return imgWidth*getPixelHeight();
     }
 
     /**
@@ -87,7 +91,6 @@ public class RayTracer {
 
     /**
      * @param d
-     * @param t
      * @return
      */
     public double getT(Vector d) {
@@ -130,7 +133,7 @@ public class RayTracer {
 
     public Vector getD(int i, int j){
         double a = -getRealWidth()/2 + (i+0.5)*getPixelWidth();
-        double b = getRealHeight()/2 - (j+0.5)*camera.getPixelHeight();
+        double b = getRealHeight()/2 - (j+0.5)*getPixelHeight();
         return camera.getU().multiply(a).add(camera.getV().multiply(b)).sub(camera.getW()).normalize();
     }
 }
