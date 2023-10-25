@@ -44,7 +44,6 @@ public class Plane extends SceneObjects {
             return null;
         }
         double t =  up/down;
-        Point p2 = new Point(lookFrom.add(d.multiply(t).getCoor()));
-        return p2;
+        return new Point(lookFrom.add(d.multiply(t).getCoor()));
     }
 }
