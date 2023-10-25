@@ -4,6 +4,7 @@ import sae101.parser.Camera;
 import sae101.parser.objects.Sphere;
 import sae101.parser.scene.Scene;
 import sae101.triplet.Color;
+import sae101.triplet.Point;
 import sae101.triplet.Vector;
 
 import javax.imageio.ImageIO;
@@ -89,28 +90,35 @@ public class RayTracer {
      * @param t
      * @return
      */
-    public double getT(Vector d, double t) {
+    public double getT(Vector d) {
+        double t = -1;
         for(Sphere sphere : scene.getSphere()){
             Vector sphereVector = new Vector(sphere.getPosition());
             double b = 2*camera.getLookFrom().sub(sphereVector).scalarProduct(d);
             double c = camera.getLookFrom().sub(sphereVector).scalarProduct(camera.getLookFrom().sub(sphereVector)) - Math.pow(sphere.getRadius(), 2);
             double delta = Math.pow(b,2) - 4 * c;
 
+
             if (delta==0){
-                t = -2*camera.getLookFrom().sub(sphereVector).scalarProduct(d)/2 ;
+               t = -2*camera.getLookFrom().sub(sphereVector).scalarProduct(d)/2 ;
             }
             else if(delta>0){
                 double t1 = -2*camera.getLookFrom().sub(sphereVector).scalarProduct(d)+Math.sqrt(delta)/2;
                 double t2 = -2*camera.getLookFrom().sub(sphereVector).scalarProduct(d)-Math.sqrt(delta)/2;
                 if (t2>0) {
-                    t =t2;
+                   t =t2;
                 }else if(t1>0){
-                    t =t1;
+                   t =t1;
                 }
             }
         }
         return t;
     }
+
+    public Vector getP(int i, int j){
+        return scene.getCamera().getLookFrom().add(getD(i,j).multiply(getT(getD(i,j))));
+    }
+
     public Vector getD(int i, int j){
         double a = -getRealWidth()/2 + (i+0.5)*getPixelWidth();
         double b = getRealHeight()/2 - (j+0.5)*camera.getPixelHeight();
