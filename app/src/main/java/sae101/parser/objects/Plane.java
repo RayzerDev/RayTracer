@@ -25,4 +25,14 @@ public class Plane extends SceneObjects {
         this.positionPoint = positionPoint;
         this.normal = normal.normalize();
     }
+
+    public Triplet intersect(Vector rayOrigin, Vector rayDirection) {
+        Vector qToLookFrom = positionPoint.subtract(rayOrigin);
+        double t = qToLookFrom.dotProduct(normal) / rayDirection.dotProduct(normal);
+        if (t >= 0) {
+            Vector intersectionPoint = rayOrigin.add(rayDirection.multiply(t));
+            return new Triplet(intersectionPoint.getX(), intersectionPoint.getY(), intersectionPoint.getZ());
+        }
+        return null;
+    }
 }
