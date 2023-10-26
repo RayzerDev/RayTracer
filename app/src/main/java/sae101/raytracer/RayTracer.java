@@ -4,6 +4,7 @@ import sae101.calculColor.LambertColorCal;
 import sae101.parser.Camera;
 import sae101.parser.objects.Sphere;
 import sae101.parser.scene.Scene;
+import sae101.shadow.IShadow;
 import sae101.triplet.Color;
 import sae101.triplet.Point;
 import sae101.triplet.Vector;
@@ -17,6 +18,8 @@ import java.io.IOException;
  */
 public class RayTracer {
     private static Scene scene;
+
+    private IShadow request;
 
     private LambertColorCal lambertColorCal =new LambertColorCal();
 

@@ -119,6 +119,10 @@ public class Parser {
                         sceneBuilder.getSpecular(),
                         sceneBuilder.getShininess(),
                         sceneBuilder.getAmbient()));
+
+                case "shadow" -> {
+
+                }
             }
 
         });
