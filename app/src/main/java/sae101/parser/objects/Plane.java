@@ -1,6 +1,7 @@
 package sae101.parser.objects;
 
 import sae101.parser.scene.SceneObjects;
+import sae101.triplet.Color;
 import sae101.triplet.Point;
 import sae101.triplet.Triplet;
 import sae101.triplet.Vector;
@@ -37,9 +38,9 @@ public class Plane extends SceneObjects {
      * @return the point
      */
     public Point caclulP(Vector d, Triplet lookFrom){
-        Point p = new Point(positionPoint);
-        double up = p.sub(new Point(lookFrom)).scalarProduct(new Vector(normal));
-        double down = d.scalarProduct(new Vector(normal));
+        Point p = new Point(positionPoint.getCoor());
+        double up = p.sub(new Point(lookFrom)).scalarProduct(new Vector(normal.getCoor()));
+        double down = d.scalarProduct(new Vector(normal.getCoor()));
         if(down == 0){
             return null;
         }
