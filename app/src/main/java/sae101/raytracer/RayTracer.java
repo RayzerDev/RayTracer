@@ -16,20 +16,20 @@ import java.io.IOException;
  * The type Ray tracer.
  */
 public class RayTracer {
-    private static Scene scene;
+    private final Scene scene;
 
-    private LambertColorCal lambertColorCal =new LambertColorCal();
+    private final LambertColorCal lambertColorCal =new LambertColorCal();
 
-    private static int imgHeight;
+    private final int imgHeight;
 
-    private static int imgWidth;
+    private final int imgWidth;
 
-    private static Camera camera;
+    private final Camera camera;
 
     /**
      * Instantiates a new Ray tracer.
      *
-     * @param scene     the scene
+     * @param scene the scene
      */
     public RayTracer(Scene scene) {
         this.scene = scene;
@@ -44,31 +44,50 @@ public class RayTracer {
      *
      * @return the double
      */
-    public static double getPixelWidth(){
+    public double getPixelWidth(){
         return  getRealWidth()/imgWidth;
     }
 
-    public static double getPixelHeight(){
+    /**
+     * Get pixel height double.
+     *
+     * @return the double
+     */
+    public double getPixelHeight(){
         return getRealHeight()/imgHeight;
     }
 
-    public static double getRealHeight(){
+    /**
+     * Get real height double.
+     *
+     * @return the double
+     */
+    public double getRealHeight(){
         return 2*Math.tan(camera.getFovR()/2);
     }
 
-    public static double getRealWidth(){
+    /**
+     * Get real width double.
+     *
+     * @return the double
+     */
+    public double getRealWidth(){
         return imgWidth*getPixelHeight();
     }
 
-    private static Sphere currentSphere;
+    private Sphere currentSphere;
 
-    public static void setCurrentSphere(Sphere currentSphere) {
-        RayTracer.currentSphere = currentSphere;
+    /**
+     * Sets current sphere.
+     *
+     * @param currentSphere the current sphere
+     */
+    public void setCurrentSphere(Sphere currentSphere) {
+        this.currentSphere = currentSphere;
     }
 
     /**
      * View.
-     *
      */
     public void view() {
         Color[][] colors = new Color[imgWidth][imgHeight];
@@ -97,10 +116,12 @@ public class RayTracer {
     }
 
     /**
-     * @param d
-     * @return
+     * Gets t.
+     *
+     * @param d the d
+     * @return t
      */
-    public static double getT(Vector d) {
+    public double getT(Vector d) {
         for(Sphere sphere : scene.getSphere()){
             Vector sphereVector = new Vector(sphere.getPosition().getCoor());
             double b = 2*camera.getLookFrom().sub(sphereVector).scalarProduct(d);
@@ -127,20 +148,41 @@ public class RayTracer {
         return -1;
     }
 
-    public static Vector getP(int i, int j){
+    /**
+     * Get p vector.
+     *
+     * @param i the
+     * @param j the j
+     * @return the vector
+     */
+    public Vector getP(int i, int j){
         return scene.getCamera().getLookFrom().add(getD(i,j).multiply(getT(getD(i,j))));
     }
 
-    public static Vector getN(int i, int j){
-        Vector N = null;
+    /**
+     * Get n vector.
+     *
+     * @param i the
+     * @param j the j
+     * @return the vector
+     */
+    public Vector getN(int i, int j){
+        Vector n = null;
         for(Sphere sphere : scene.getSphere()){
             Vector sphereVector = new Vector(sphere.getPosition().getCoor());
-            N = getP(i,j).sub(sphereVector).normalize();
+            n = getP(i,j).sub(sphereVector).normalize();
         }
-        return N;
+        return n;
     }
 
-    public static Vector getD(int i, int j){
+    /**
+     * Get d vector.
+     *
+     * @param i the
+     * @param j the j
+     * @return the vector
+     */
+    public Vector getD(int i, int j){
         double a = -getRealWidth()/2 + (i+0.5)*getPixelWidth();
         double b = getRealHeight()/2 - (j+0.5)*getPixelHeight();
         return camera.getU().multiply(a).add(camera.getV().multiply(b)).sub(camera.getW()).normalize();

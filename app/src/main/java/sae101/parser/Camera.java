@@ -1,6 +1,5 @@
 package sae101.parser;
 
-import sae101.parser.scene.Scene;
 import sae101.triplet.Vector;
 
 /**
@@ -11,11 +10,11 @@ public class Camera {
     /**
      *
      */
-    private Vector lookFrom;
+    private final Vector lookFrom;
 
-    private Vector lookAt;
+    private final Vector lookAt;
 
-    private Vector up;
+    private final Vector up;
 
     private int fov;
 

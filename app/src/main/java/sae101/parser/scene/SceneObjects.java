@@ -2,7 +2,6 @@ package sae101.parser.scene;
 
 import sae101.parser.Parser;
 import sae101.triplet.Color;
-import sae101.triplet.Triplet;
 
 /**
  * The type Scene object.
@@ -15,6 +14,9 @@ public abstract class SceneObjects {
 
     private int shininess;
 
+    /**
+     * The Scene builder.
+     */
     SceneBuilder sceneBuilder = new SceneBuilder();
 
     /**
@@ -22,20 +24,30 @@ public abstract class SceneObjects {
      *
      * @param diffuseColor  the diffuse color
      * @param specularColor the specular color
-     * @param ambient
-     * @param shininess
+     * @param ambient       the ambient light
+     * @param shininess     the shininess of the light
      */
-    public SceneObjects(Color diffuseColor, Color specularColor, Color ambient, int shininess) {
+    protected SceneObjects(Color diffuseColor, Color specularColor, Color ambient, int shininess) {
         this.diffuseColor = diffuseColor;
         this.specularColor = specularColor;
         this.ambient = ambient;
         this.shininess = shininess;
     }
 
+    /**
+     * Gets ambient.
+     *
+     * @return the ambient
+     */
     public Color getAmbient() {
         return ambient;
     }
 
+    /**
+     * Sets ambient.
+     *
+     * @param ambient the ambient
+     */
     public void setAmbient(Color ambient) {
         this.ambient = ambient;
     }
@@ -58,6 +70,11 @@ public abstract class SceneObjects {
         return specularColor;
     }
 
+    /**
+     * Gets shininess.
+     *
+     * @return the shininess
+     */
     public int getShininess() {
         return shininess;
     }
@@ -76,6 +93,11 @@ public abstract class SceneObjects {
         this.specularColor = Parser.sceneBuilder.getSpecular();
     }
 
+    /**
+     * Sets shininess.
+     *
+     * @param shininess the shininess
+     */
     public void setShininess(int shininess) {
         this.shininess = shininess;
     }

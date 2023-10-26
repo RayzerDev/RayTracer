@@ -1,22 +1,26 @@
 package sae101.parser.light;
-import sae101.parser.Camera;
-import sae101.parser.Parser;
-import sae101.parser.scene.Scene;
+
 import sae101.raytracer.RayTracer;
 import sae101.triplet.Point;
 import sae101.triplet.Color;
 import sae101.triplet.Vector;
 
 /**
- * The type Point ligth.
+ * The type Point light.
+ *
  * @author damien.allaert
  */
 public class PointLight extends Light{
 
+    /**
+     * The Point.
+     */
     Point point = null;
 
+    RayTracer rayTracer = null;
+
     /**
-     * Instantiates a new Point ligth.
+     * Instantiates a new Point light.
      *
      * @param point the point
      * @param color the color
@@ -26,12 +30,22 @@ public class PointLight extends Light{
         this.point = point;
     }
 
+    /**
+     * Get point point.
+     *
+     * @return the point
+     */
     public Point getPoint(){
         return point;
     }
 
+    /**
+     * Get ldir vector.
+     *
+     * @return the vector
+     */
     public Vector getLdir(){
-        return new Vector(getCoordinate().sub(RayTracer.getP((int) point.getCoor().getX(),
+        return new Vector(getCoordinate().sub(rayTracer.getP((int) point.getCoor().getX(),
                 (int)point.getCoor().getY()).getCoor()).normalize());
     }
 }

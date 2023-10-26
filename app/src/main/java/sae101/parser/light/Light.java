@@ -2,9 +2,11 @@ package sae101.parser.light;
 
 import sae101.triplet.Color;
 import sae101.triplet.Triplet;
+import sae101.triplet.Vector;
 
 /**
  * The type Light.
+ *
  * @author damien.allaert
  */
 public abstract class Light {
@@ -19,7 +21,7 @@ public abstract class Light {
      * @param coordinate the coordinate
      * @param color      the color
      */
-    public Light(Triplet coordinate, Color color){
+    protected Light(Triplet coordinate, Color color){
         this.coordinate = coordinate;
         this.color = color;
     }
@@ -59,4 +61,8 @@ public abstract class Light {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public Vector getLdir(){
+        return null;
+    };
 }

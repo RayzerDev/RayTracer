@@ -20,9 +20,7 @@ public class Parser {
      */
     public static SceneBuilder sceneBuilder = new SceneBuilder();
 
-    private File file;
-
-    private BufferedReader in;
+    private final BufferedReader in;
 
     /**
      * Instantiates a new Parser.
@@ -31,7 +29,7 @@ public class Parser {
      * @throws FileNotFoundException the file not found exception
      */
     public Parser(String path) throws FileNotFoundException {
-        this.file = new File(path);
+        File file = new File(path);
         this.in = new BufferedReader(new FileReader(file));
     }
 
@@ -44,7 +42,7 @@ public class Parser {
     public Scene build() throws IOException {
         sceneBuilder.setDiffuse(new Color(0,0,0));
         sceneBuilder.setSpecular(new Color(0,0,0));
-        in.lines().forEach((line)->{
+        in.lines().forEach(line->{
             String[] lineSplit = line.split(" ");
             switch (lineSplit[0]){
 
