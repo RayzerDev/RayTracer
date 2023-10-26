@@ -1,5 +1,6 @@
 package sae101.raytracer;
 
+import sae101.calculColor.IFormLambert;
 import sae101.calculColor.LambertColorCal;
 import sae101.parser.Camera;
 import sae101.parser.objects.Sphere;
@@ -22,7 +23,7 @@ public class RayTracer {
 
     private IShadow request;
 
-    private LambertColorCal lambertColorCal =new LambertColorCal();
+    private IFormLambert lambertColorCal =new LambertColorCal();
 
     private static int imgHeight;
 
