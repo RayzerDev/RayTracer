@@ -9,7 +9,7 @@ import sae101.triplet.Triplet;
  * The type Sphere.
  */
 public class Sphere extends SceneObjects {
-    private double radius;
+    private final double radius;
 
     private Point position;
 

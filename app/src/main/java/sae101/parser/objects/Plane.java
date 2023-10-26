@@ -11,9 +11,9 @@ import sae101.triplet.Vector;
  * The type Plane.
  */
 public class Plane extends SceneObjects {
-    private Vector normal;
+    private final Vector normal;
 
-    private Point positionPoint;
+    private final Point positionPoint;
 
     /**
      * Instantiates a new Plane.
@@ -31,7 +31,7 @@ public class Plane extends SceneObjects {
     }
 
     /**
-     * Caclul p point. The intersect of a point.
+     * Caclul p point. To intersect of a point.
      *
      * @param d        the d
      * @param lookFrom the look from
