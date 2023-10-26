@@ -2,6 +2,7 @@ package sae101.parser.objects;
 
 import sae101.parser.scene.SceneObjects;
 import sae101.triplet.Triplet;
+import sae101.triplet.Vector;
 
 
 /**
