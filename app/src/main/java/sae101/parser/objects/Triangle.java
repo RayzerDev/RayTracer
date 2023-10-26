@@ -19,4 +19,8 @@ public class Triangle extends SceneObjects {
         this.vertex2 = vertex2;
         this.vertex3 = vertex3;
     }
+
+    public Point getPTriangle(){
+        return null;
+    }
 }
