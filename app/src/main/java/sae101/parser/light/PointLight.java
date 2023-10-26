@@ -15,9 +15,7 @@ public class PointLight extends Light{
     /**
      * The Point.
      */
-    Point point = null;
-
-    RayTracer rayTracer = null;
+    Point point;
 
     /**
      * Instantiates a new Point light.
@@ -26,7 +24,7 @@ public class PointLight extends Light{
      * @param color the color
      */
     public PointLight(Point point, Color color){
-        super(point.getCoor(), color);
+        super(color);
         this.point = point;
     }
 
@@ -44,8 +42,7 @@ public class PointLight extends Light{
      *
      * @return the vector
      */
-    public Vector getLdir(){
-        return new Vector(getCoordinate().sub(rayTracer.getP((int) point.getCoor().getX(),
-                (int)point.getCoor().getY()).getCoor()).normalize());
+    public Vector getLdir(Point p){
+        return point.sub(p).normalize();
     }
 }

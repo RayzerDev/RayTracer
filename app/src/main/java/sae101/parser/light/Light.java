@@ -1,6 +1,7 @@
 package sae101.parser.light;
 
 import sae101.triplet.Color;
+import sae101.triplet.Point;
 import sae101.triplet.Triplet;
 import sae101.triplet.Vector;
 
@@ -11,28 +12,15 @@ import sae101.triplet.Vector;
  */
 public abstract class Light {
 
-    private Triplet coordinate;
-
     private Color color;
 
     /**
      * Instantiates a new Light.
      *
-     * @param coordinate the coordinate
      * @param color      the color
      */
-    protected Light(Triplet coordinate, Color color){
-        this.coordinate = coordinate;
+    protected Light(Color color){
         this.color = color;
-    }
-
-    /**
-     * Gets coordinate.
-     *
-     * @return the coordinate
-     */
-    public Triplet getCoordinate() {
-        return coordinate;
     }
 
     /**
@@ -45,15 +33,6 @@ public abstract class Light {
     }
 
     /**
-     * Sets coordinate.
-     *
-     * @param coordinate the coordinate
-     */
-    public void setCoordinate(Triplet coordinate) {
-        this.coordinate = coordinate;
-    }
-
-    /**
      * Sets color.
      *
      * @param color the color
@@ -62,7 +41,5 @@ public abstract class Light {
         this.color = color;
     }
 
-    public Vector getLdir(){
-        return null;
-    };
+    public abstract Vector getLdir(Point p);
 }

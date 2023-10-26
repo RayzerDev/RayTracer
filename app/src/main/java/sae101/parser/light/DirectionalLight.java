@@ -1,6 +1,7 @@
 package sae101.parser.light;
 
 import sae101.triplet.Color;
+import sae101.triplet.Point;
 import sae101.triplet.Vector;
 
 /**
@@ -9,15 +10,20 @@ import sae101.triplet.Vector;
  * @author damien.allaert
  */
 public class DirectionalLight extends Light{
-
+    Vector direction;
     /**
      * Instantiates a new Directional ligth.
      *
-     * @param vector the vector
+     * @param direction the vector
      * @param color  the color
      */
-    public DirectionalLight(Vector vector, Color color){
-        super(vector.getCoor(), color);
+    public DirectionalLight(Vector direction, Color color){
+        super( color);
+        this.direction = direction;
+    }
+
+    public Vector getDirection() {
+        return direction;
     }
 
     /**
@@ -25,8 +31,8 @@ public class DirectionalLight extends Light{
      *
      * @return the vector
      */
-    public Vector getLdir(){
-        return new Vector(-getCoordinate().getX(),-getCoordinate().getY(),-getCoordinate().getZ()).normalize();
+    public Vector getLdir(Point p){
+        return new Vector(-direction.getCoor().getX(),-direction.getCoor().getY(),-direction.getCoor().getZ()).normalize();
     }
 
 }
