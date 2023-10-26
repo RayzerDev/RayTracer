@@ -19,4 +19,24 @@ public class Triangle extends SceneObjects {
         this.vertex2 = vertex2;
         this.vertex3 = vertex3;
     }
+    public boolean isPointInsideTriangle(Point p) {
+        Vector edge1 = new Vector(vertex2.getCoor()).sub(new Vector(vertex1.getCoor()));
+        Vector edge2 = new Vector(vertex3.getCoor()).sub(new Vector(vertex1.getCoor()));
+        Vector n = edge1.vectorProduct(edge2).normalize();
+
+        Vector ap = new Vector(p.getCoor()).sub(new Vector(vertex1.getCoor()));
+        Vector bp = new Vector(p.getCoor()).sub(new Vector(vertex2.getCoor()));
+        Vector cp = new Vector(p.getCoor()).sub(new Vector(vertex3.getCoor()));
+
+        Vector abp = edge1.vectorProduct(ap);
+        Vector bcp = edge2.vectorProduct(bp);
+        Vector cap = edge1.vectorProduct(cp);
+
+        double abpDotN = abp.scalarProduct(n);
+        double bcpDotN = bcp.scalarProduct(n);
+        double capDotN = cap.scalarProduct(n);
+
+        return abpDotN >= 0 && bcpDotN >= 0 && capDotN >= 0;
+    }
+    
 }
