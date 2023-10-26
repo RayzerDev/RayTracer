@@ -1,27 +1,30 @@
 package sae101.parser.objects;
 
 import sae101.parser.scene.SceneObjects;
-import sae101.triplet.Triplet;
+import sae101.triplet.Color;
+import sae101.triplet.Point;
+import sae101.triplet.Vector;
 
 
 /**
  * The type Plane.
  */
 public class Plane extends SceneObjects {
-    private Triplet normal;
+    private Vector normal;
 
-    private Triplet positionPoint;
+    private Point positionPoint;
 
     /**
      * Instantiates a new Plane.
      *
-     * @param positionPoint      the position
+     * @param positionPoint the position
      * @param normal        the normal
      * @param diffuseColor  the diffuse color
      * @param specularColor the specular color
+     * @param ambient
      */
-    public Plane(Triplet positionPoint, Triplet normal, Triplet diffuseColor, Triplet specularColor, int shininess) {
-        super(diffuseColor, specularColor, shininess);
+    public Plane(Point positionPoint, Vector normal, Color diffuseColor, Color specularColor, int shininess, Color ambient) {
+        super(diffuseColor, specularColor, ambient, shininess);
         this.positionPoint = positionPoint;
         this.normal = normal.normalize();
     }

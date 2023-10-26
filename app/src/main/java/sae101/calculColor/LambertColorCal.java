@@ -5,32 +5,37 @@ import sae101.parser.light.Light;
 import sae101.parser.light.PointLight;
 import sae101.parser.objects.Sphere;
 import sae101.parser.scene.Scene;
-import sae101.raytracer.RayTracer;
 import sae101.triplet.Color;
 import sae101.triplet.Point;
+import sae101.triplet.Triplet;
 import sae101.triplet.Vector;
 
-import java.util.ArrayList;
-
 public class LambertColorCal implements IFormLambert{
-
     @Override
-    public Color calculateColor(Sphere sphere, Vector vector, Vector lightDirection, Scene scene) {
-        Vector ldir = new Vector(0,0,0);
+    public Color calculateColor(Sphere sphere, Scene scene, Point p) {
+        Vector n = p.sub(sphere.getPosition()).normalize();
+        Color col = new Color(0,0,0);
+
         for(Light light : scene.getLight()){
+            Vector ldir = new Vector(0,0,0);
             if(light instanceof DirectionalLight){
                 ldir = ((DirectionalLight) light).getLdir();
             }
             else if (light instanceof PointLight){
-                Point p = ((PointLight) light).getPoint();
                 ldir = ((PointLight) light).getLdir();
             }
+            double cosTheta = Math.max(n.scalarProduct(ldir),0);
+            if(sphere.getAmbient() == null){
+                col = light.getColor().multiply(cosTheta);
+            }
+            else{
+                Triplet colCoor = sphere.getAmbient().add(light.getColor().multiply(cosTheta)).getCoor();
+                colCoor.setX(Math.min(colCoor.getX(),1));
+                colCoor.setY(Math.min(colCoor.getY(),1));
+                colCoor.setZ(Math.min(colCoor.getZ(),1));
+                col.setCoor(colCoor);
+            }
         }
-        return null;
-    }
-
-    public Color calculateColor(Vector normal, Vector lightDirection, Color lightColor,  Color objectColor){
-        double cosTheta = Math.max(normal.scalarProduct(new Vector(lightColor.getCoor())),0);
-        return objectColor.schurProduct(new Color(lightColor.getCoor())).multiply(cosTheta);
+        return col;
     }
 }

@@ -61,7 +61,7 @@ public class Parser {
                 case "ambient" -> sceneBuilder.setAmbient(new Color(new Triplet(Double.parseDouble(lineSplit[1]),Double.parseDouble(lineSplit[2]),Double.parseDouble(lineSplit[3]))));
 
                 case "diffuse" -> {
-                    if(sceneBuilder.getAmbient().getCoor().getX() + Double.parseDouble(lineSplit[1]) > 1 || sceneBuilder.getAmbient().getCoor().getY() + Double.parseDouble(lineSplit[2]) > 1 || sceneBuilder.getAmbient().getCoor().getZ() + Double.parseDouble(lineSplit[3]) > 1){
+                    if(sceneBuilder.getAmbient() != null && (sceneBuilder.getAmbient().getCoor().getX() + Double.parseDouble(lineSplit[1]) > 1 || sceneBuilder.getAmbient().getCoor().getY() + Double.parseDouble(lineSplit[2]) > 1 || sceneBuilder.getAmbient().getCoor().getZ() + Double.parseDouble(lineSplit[3]) > 1)){
                         throw new InputMismatchException();
                     }
                     sceneBuilder.setDiffuse(new Color(new Triplet(Double.parseDouble(lineSplit[1]),Double.parseDouble(lineSplit[2]),Double.parseDouble(lineSplit[3]))));
@@ -100,24 +100,25 @@ public class Parser {
 
                 case "tri" -> {
                     sceneBuilder.addObject(new Triangle(
-                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[1])).getCoor(),
-                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[2])).getCoor(),
-                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[3])).getCoor(),
-                            sceneBuilder.getDiffuse().getCoor(),
-                            sceneBuilder.getSpecular().getCoor(),
-                            sceneBuilder.getShininess()
-                    ));
+                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[1])),
+                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[2])),
+                            sceneBuilder.getPoint(Integer.parseInt(lineSplit[3])),
+                            sceneBuilder.getDiffuse(),
+                            sceneBuilder.getSpecular(),
+                            sceneBuilder.getShininess(),
+                            sceneBuilder.getAmbient()));
 
                 }
 
                 case "sphere" -> sceneBuilder.addObject(
-                        new Sphere(new Triplet(Integer.parseInt(lineSplit[1]),
-                                Integer.parseInt(lineSplit[2]),
-                                Integer.parseInt(lineSplit[3])),
+                        new Sphere(new Point(Double.parseDouble(lineSplit[1]),
+                                Double.parseDouble(lineSplit[2]),
+                                Double.parseDouble(lineSplit[3])),
                         Double.parseDouble(lineSplit[4]),
-                        sceneBuilder.getDiffuse().getCoor(),
-                        sceneBuilder.getSpecular().getCoor(),
-                        sceneBuilder.getShininess()));
+                        sceneBuilder.getDiffuse(),
+                        sceneBuilder.getSpecular(),
+                        sceneBuilder.getShininess(),
+                        sceneBuilder.getAmbient()));
             }
 
         });

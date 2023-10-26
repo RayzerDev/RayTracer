@@ -31,6 +31,7 @@ public class PointLight extends Light{
     }
 
     public Vector getLdir(){
-        return new Vector(getCoordinate().sub(RayTracer.getP((int) point.getCoor().getX(),(int)point.getCoor().getY()).getCoor()).normalize());
+        return new Vector(getCoordinate().sub(RayTracer.getP((int) point.getCoor().getX(),
+                (int)point.getCoor().getY()).getCoor()).normalize());
     }
 }
