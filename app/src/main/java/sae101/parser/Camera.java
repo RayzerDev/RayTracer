@@ -11,11 +11,11 @@ public class Camera {
     /**
      *
      */
-    private Vector lookFrom;
+    private final Vector lookFrom;
 
-    private Vector lookAt;
+    private final Vector lookAt;
 
-    private Vector up;
+    private final Vector up;
 
     private int fov;
 
