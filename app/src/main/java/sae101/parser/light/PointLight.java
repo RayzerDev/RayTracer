@@ -17,6 +17,8 @@ public class PointLight extends Light{
      */
     Point point = null;
 
+    RayTracer rayTracer = null;
+
     /**
      * Instantiates a new Point light.
      *
@@ -43,7 +45,7 @@ public class PointLight extends Light{
      * @return the vector
      */
     public Vector getLdir(){
-        return new Vector(getCoordinate().sub(getP((int) point.getCoor().getX(),
+        return new Vector(getCoordinate().sub(rayTracer.getP((int) point.getCoor().getX(),
                 (int)point.getCoor().getY()).getCoor()).normalize());
     }
 }
