@@ -13,16 +13,16 @@ import java.util.List;
  * The type Scene builder.
  */
 public class SceneBuilder implements Builder{
-    public File output;
+    private File output;
     private Camera camera;
 
     private int height;
 
     private int width;
 
-    private List<Light> lights= new ArrayList<>();
+    private final List<Light> lights= new ArrayList<>();
 
-    private List<SceneObjects> sceneObjs= new ArrayList<>();
+    private final List<SceneObjects> sceneObjs= new ArrayList<>();
 
     private Color ambient;
 
@@ -38,9 +38,20 @@ public class SceneBuilder implements Builder{
 
     private List<Color> colors;
 
+    /**
+     * Set output.
+     *
+     * @param output the output
+     */
     public void setOutput(File output){
         this.output = output;
     }
+
+    /**
+     * Get output file.
+     *
+     * @return the file
+     */
     public File getOutput(){
         return output;
     }
@@ -92,11 +103,21 @@ public class SceneBuilder implements Builder{
         this.shininess = shininess;
     }
 
+    /**
+     * Sets maxverts.
+     *
+     * @param maxverts the maxverts
+     */
     public void setMaxverts(int maxverts) {
         points = new ArrayList<>(getMaxverts());
         this.maxverts = maxverts;
     }
 
+    /**
+     * Gets maxverts.
+     *
+     * @return the maxverts
+     */
     public int getMaxverts() {
         return maxverts;
     }
@@ -137,6 +158,12 @@ public class SceneBuilder implements Builder{
         return ambient;
     }
 
+    /**
+     * Gets point.
+     *
+     * @param index the index
+     * @return the point
+     */
     public Point getPoint(int index) {
         return points.get(index);
     }
@@ -156,6 +183,11 @@ public class SceneBuilder implements Builder{
         lights.add(light);
     }
 
+    /**
+     * Add point.
+     *
+     * @param point the point
+     */
     public void addPoint(Point point){points.add(point);}
 
     @Override
