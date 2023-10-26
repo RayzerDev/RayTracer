@@ -21,18 +21,18 @@ public class LambertColorCal implements IFormLambert{
             double cosTheta = Math.max(n.scalarProduct(ldir),0);
             col = col.add(light.getColor().multiply(cosTheta));
         }
-        if(scene.getAmbient()!=null){
-            col = col.add(scene.getAmbient());
-        }
-        if(sphere.getAmbient()!=null){
-            Triplet colCoor = col.add(sphere.getAmbient()).getCoor();
+        if(sphere.getDiffuseColor()!=null){
+            Triplet colCoor = col.schurProduct(sphere.getDiffuseColor()).getCoor();
             colCoor.setX(Math.min(colCoor.getX(),1));
             colCoor.setY(Math.min(colCoor.getY(),1));
             colCoor.setZ(Math.min(colCoor.getZ(),1));
             col.setCoor(colCoor);
         }
-        if(sphere.getDiffuseColor()!=null){
-            Triplet colCoor = col.schurProduct(sphere.getDiffuseColor()).getCoor();
+        if(scene.getAmbient()!=null){
+            col = col.add(scene.getAmbient());
+        }
+        if(sphere.getAmbient()!=null){
+            Triplet colCoor = col.add(sphere.getAmbient()).getCoor();
             colCoor.setX(Math.min(colCoor.getX(),1));
             colCoor.setY(Math.min(colCoor.getY(),1));
             colCoor.setZ(Math.min(colCoor.getZ(),1));

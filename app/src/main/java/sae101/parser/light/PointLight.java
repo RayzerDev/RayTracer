@@ -43,6 +43,6 @@ public class PointLight extends Light{
      * @return the vector
      */
     public Vector getLdir(Point p){
-        return point.sub(p).normalize();
+        return p.sub(point);
     }
 }
