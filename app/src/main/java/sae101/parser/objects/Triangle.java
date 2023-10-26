@@ -10,9 +10,9 @@ import sae101.triplet.Vector;
  * The type Triangle.
  */
 public class Triangle extends SceneObjects {
-    private final Point vertex1;
-    private final Point vertex2;
-    private final Point vertex3;
+    private final Point a;
+    private final Point b;
+    private final Point c;
     private Vector normal;
 
     /**
@@ -28,9 +28,9 @@ public class Triangle extends SceneObjects {
      */
     public Triangle(Point vertex1, Point vertex2, Point vertex3, Color diffuseColor, Color specularColor, int shininess, Color ambient) {
         super(diffuseColor, specularColor, ambient, shininess);
-        this.vertex1 = vertex1;
-        this.vertex2 = vertex2;
-        this.vertex3 = vertex3;
+        this.a = vertex1;
+        this.b = vertex2;
+        this.c = vertex3;
     }
 
     /**
@@ -39,6 +39,6 @@ public class Triangle extends SceneObjects {
      * @return the point
      */
     public Vector getNTriangle(){
-        return (vertex2.sub(vertex1).multiply(vertex3.sub(vertex1).length()).normalize());
+        return b.sub(a).multiply(c.sub(a).length()).normalize();
     }
 }
