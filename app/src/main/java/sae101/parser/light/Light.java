@@ -5,6 +5,7 @@ import sae101.triplet.Triplet;
 
 /**
  * The type Light.
+ *
  * @author damien.allaert
  */
 public abstract class Light {
@@ -19,7 +20,7 @@ public abstract class Light {
      * @param coordinate the coordinate
      * @param color      the color
      */
-    public Light(Triplet coordinate, Color color){
+    protected Light(Triplet coordinate, Color color){
         this.coordinate = coordinate;
         this.color = color;
     }

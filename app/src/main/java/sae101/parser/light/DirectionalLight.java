@@ -5,6 +5,7 @@ import sae101.triplet.Vector;
 
 /**
  * The type Directional ligth.
+ *
  * @author damien.allaert
  */
 public class DirectionalLight extends Light{
@@ -19,6 +20,11 @@ public class DirectionalLight extends Light{
         super(vector.getCoor(), color);
     }
 
+    /**
+     * Get ldir vector.
+     *
+     * @return the vector
+     */
     public Vector getLdir(){
         return new Vector(-getCoordinate().getX(),-getCoordinate().getY(),-getCoordinate().getZ()).normalize();
     }
