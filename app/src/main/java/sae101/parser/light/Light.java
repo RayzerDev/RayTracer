@@ -2,6 +2,7 @@ package sae101.parser.light;
 
 import sae101.triplet.Color;
 import sae101.triplet.Triplet;
+import sae101.triplet.Vector;
 
 /**
  * The type Light.
@@ -60,4 +61,8 @@ public abstract class Light {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public Vector getLdir(){
+        return null;
+    };
 }
