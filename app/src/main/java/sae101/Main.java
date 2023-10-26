@@ -2,6 +2,7 @@ package sae101;
 
 import sae101.parser.Parser;
 import sae101.parser.scene.Scene;
+import sae101.parser.scene.SceneObjects;
 import sae101.raytracer.RayTracer;
 
 import java.io.IOException;

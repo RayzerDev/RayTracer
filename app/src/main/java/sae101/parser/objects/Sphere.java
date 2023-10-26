@@ -1,6 +1,8 @@
 package sae101.parser.objects;
 
 import sae101.parser.scene.SceneObjects;
+import sae101.triplet.Color;
+import sae101.triplet.Point;
 import sae101.triplet.Triplet;
 
 /**
@@ -9,7 +11,7 @@ import sae101.triplet.Triplet;
 public class Sphere extends SceneObjects {
     private double radius;
 
-    private Triplet position;
+    private Point position;
 
     /**
      * Instantiates a new Sphere.
@@ -20,8 +22,8 @@ public class Sphere extends SceneObjects {
      * @param specularColor the specular color
      * @param shininess     the shininess
      */
-    public Sphere(Triplet position, double radius, Triplet diffuseColor, Triplet specularColor, int shininess) {
-        super(diffuseColor, specularColor, shininess);
+    public Sphere(Point position, double radius, Color diffuseColor, Color specularColor, int shininess, Color ambient) {
+        super(diffuseColor, specularColor, ambient, shininess);
         this.position = position;
         this.radius = radius;
     }
@@ -35,7 +37,7 @@ public class Sphere extends SceneObjects {
      *
      * @return the position
      */
-    public Triplet getPosition() {
+    public Point getPosition() {
         return position;
     }
 
@@ -44,7 +46,7 @@ public class Sphere extends SceneObjects {
      *
      * @param position the position
      */
-    public void setPosition(Triplet position) {
+    public void setPosition(Point position) {
         this.position = position;
     }
 }
