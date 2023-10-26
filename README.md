@@ -30,12 +30,15 @@ bash scripts/exec.sh votreforme.txt
 ## Class Diagram
 We will place class diagrams here based on our progress in the project.
 
-- Day 1 (Monday, 23 octobre):
+- Day 1 (Monday, 23 october):
 
 ![image](app/src/main/resources/diagram.png)
-- Day 2 (Tuesday, 24 octobre):
+- Day 2 (Tuesday, 24 october):
 
 ![image](app/src/main/resources/diagramj2.svg)
-- Day 3 (Wednesday, 25 octobre):
+- Day 3 (Wednesday, 25 october):
 
 ![image](app/src/main/resources/diagramj3.svg)
+- Day 4 (Thursday, 26 october)
+
+![image](app/src/main/resources/diagramj4.svg)
