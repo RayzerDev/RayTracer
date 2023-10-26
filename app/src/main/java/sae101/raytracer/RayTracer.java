@@ -5,6 +5,7 @@ import sae101.parser.Camera;
 import sae101.parser.objects.Sphere;
 import sae101.parser.scene.Scene;
 import sae101.shadow.IShadow;
+import sae101.shadow.Proxy;
 import sae101.triplet.Color;
 import sae101.triplet.Point;
 import sae101.triplet.Vector;
@@ -39,6 +40,7 @@ public class RayTracer {
         this.imgHeight = scene.getHeight();
         this.imgWidth = scene.getWidth();
         this.camera = scene.getCamera();
+        this.request = new Proxy();
     }
 
 
@@ -81,7 +83,11 @@ public class RayTracer {
                 double t = getT(d);
                 colors[i][j] = new Color(0, 0, 0);
                 if (t != -1) {
+                    if(request.request()){
+
+                    }
                     colors[i][j] = lambertColorCal.calculateColor(currentSphere, scene, new Point(getP(i, j).getCoor()));
+
                 }
             }
         }

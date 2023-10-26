@@ -16,6 +16,8 @@ public class SceneBuilder implements Builder{
     public File output;
     private Camera camera;
 
+    private boolean shadow = false;
+
     private int height;
 
     private int width;
@@ -97,6 +99,15 @@ public class SceneBuilder implements Builder{
         this.maxverts = maxverts;
     }
 
+    public boolean getShadow() {
+        return shadow;
+    }
+
+    public void setShadow(boolean shadow) {
+        this.shadow = shadow;
+    }
+
+
     public int getMaxverts() {
         return maxverts;
     }
@@ -165,6 +176,6 @@ public class SceneBuilder implements Builder{
 
     @Override
     public Scene build() {
-        return new Scene(camera,height,width,lights,sceneObjs,ambient, points, colors, output);
+        return new Scene(camera,height,width,lights,sceneObjs,ambient, points, colors, output, shadow);
     }
 }

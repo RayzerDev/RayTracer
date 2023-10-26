@@ -121,12 +121,16 @@ public class Parser {
                         sceneBuilder.getAmbient()));
 
                 case "shadow" -> {
-
+                        sceneBuilder.setShadow(Boolean.parseBoolean(lineSplit[1]));
                 }
             }
 
         });
         in.close();
         return sceneBuilder.build();
+    }
+
+    public static SceneBuilder getSceneBuilder() {
+        return sceneBuilder;
     }
 }

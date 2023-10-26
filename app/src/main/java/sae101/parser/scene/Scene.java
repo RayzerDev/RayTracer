@@ -15,6 +15,8 @@ import java.util.List;
  */
 public class Scene {
     private File output;
+
+    private boolean shadow;
     private Camera camera;
 
     private int height;
@@ -41,8 +43,9 @@ public class Scene {
      * @param sceneobj the sceneobj
      * @param ambient  the ambient
      * @param output
+     * @param shadow
      */
-    public Scene(Camera camera, int height, int width, List<Light> light, List<SceneObjects> sceneobj, Color ambient, List<Point> points, List<Color> colors, File output) {
+    public Scene(Camera camera, int height, int width, List<Light> light, List<SceneObjects> sceneobj, Color ambient, List<Point> points, List<Color> colors, File output, boolean shadow) {
         this.camera = camera;
         this.height = height;
         this.width = width;
@@ -52,6 +55,7 @@ public class Scene {
         this.points = points;
         this.colors = colors;
         this.output = output;
+        this.shadow = shadow;
     }
 
     public File getOutput() {
