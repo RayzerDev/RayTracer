@@ -41,4 +41,8 @@ public class Triangle extends SceneObjects {
     public Vector getNTriangle(){
         return b.sub(a).multiply(c.sub(a).length()).normalize();
     }
+
+    public boolean isInTriangle(Point p){
+        return b.sub(a).multiply(p.sub(a).length()).scalarProduct(getNTriangle())>=0 && c.sub(b).multiply(p.sub(b).length()).scalarProduct(getNTriangle())>=0 && a.sub(c).multiply(p.sub(c).length()).scalarProduct(getNTriangle())>=0;
+    }
 }

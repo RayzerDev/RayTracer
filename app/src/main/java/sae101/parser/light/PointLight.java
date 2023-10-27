@@ -29,7 +29,7 @@ public class PointLight extends Light{
     }
 
     /**
-     * Get point point.
+     * Get the point.
      *
      * @return the point
      */

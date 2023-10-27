@@ -38,6 +38,8 @@ public class SceneBuilder implements Builder{
 
     private List<Color> colors;
 
+    private boolean shadow = false;
+
     /**
      * Set output.
      *
@@ -66,6 +68,16 @@ public class SceneBuilder implements Builder{
         this.height=height;
         this.width=width;
     }
+
+    public boolean getShadow() {
+        return shadow;
+    }
+
+    public void setShadow(boolean shadow) {
+        this.shadow = shadow;
+    }
+
+
 
     /**
      * Sets ambient.
@@ -197,6 +209,6 @@ public class SceneBuilder implements Builder{
 
     @Override
     public Scene build() {
-        return new Scene(camera,height,width,lights,sceneObjs,ambient, points, colors, output);
+        return new Scene(camera,height,width,lights,sceneObjs,ambient, points, colors, output, shadow);
     }
 }

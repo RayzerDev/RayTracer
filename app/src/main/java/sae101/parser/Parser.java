@@ -116,10 +116,18 @@ public class Parser {
                         sceneBuilder.getSpecular(),
                         sceneBuilder.getShininess(),
                         sceneBuilder.getAmbient()));
+
+                case "shadow" -> {
+                        sceneBuilder.setShadow(Boolean.parseBoolean(lineSplit[1]));
+                }
             }
 
         });
         in.close();
         return sceneBuilder.build();
+    }
+
+    public static SceneBuilder getSceneBuilder() {
+        return sceneBuilder;
     }
 }
