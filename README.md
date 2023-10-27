@@ -42,3 +42,8 @@ We will place class diagrams here based on our progress in the project.
 - Day 4 (Thursday, 26 october)
 
 ![image](app/src/main/resources/diagramj4.svg)
+-Day 5 (Last day Friday, 27 october)
+
+![image](app/src/main/resources/diagramj5.svg)
+
+We have finished our class diagram and here it is (last day).
