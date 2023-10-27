@@ -31,6 +31,8 @@ public class Scene {
 
     private final List<Point> points;
 
+    private boolean shadow;
+
     /**
      * Instantiates a new Scene.
      *
@@ -42,7 +44,7 @@ public class Scene {
      * @param ambient  the ambient
      * @param output
      */
-    public Scene(Camera camera, int height, int width, List<Light> light, List<SceneObjects> sceneobj, Color ambient, List<Point> points, List<Color> colors, File output) {
+    public Scene(Camera camera, int height, int width, List<Light> light, List<SceneObjects> sceneobj, Color ambient, List<Point> points, List<Color> colors, File output, boolean shadow) {
         this.camera = camera;
         this.height = height;
         this.width = width;
@@ -52,6 +54,7 @@ public class Scene {
         this.points = points;
         this.colors = colors;
         this.output = output;
+        this.shadow = shadow;
     }
 
     public File getOutput() {
