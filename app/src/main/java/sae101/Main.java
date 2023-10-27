@@ -18,7 +18,7 @@ public class Main {
      * @param args the input arguments
      */
     public static void main(String[] args) throws IOException {
-        Path resourceDirectory = Paths.get("src","main","resources","figures");
+        Path resourceDirectory = Paths.get("src", "main", "resources", "figures");
         String path = "%s/%s".formatted(resourceDirectory.toFile().getAbsolutePath(), args[0]);
         Parser pars;
         pars = new Parser(path);
@@ -26,4 +26,4 @@ public class Main {
         RayTracer rt = new RayTracer(scene);
         rt.view();
     }
-}
+    }

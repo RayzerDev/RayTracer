@@ -97,7 +97,7 @@ public class RayTracer {
                 double t = getT(d);
                 colors[i][j] = new Color(0, 0, 0);
                 if (t != -1) {
-                    colors[i][j] = lambertColorCal.calculateColor(currentSphere, scene, new Point(getP(i, j).getCoor()));
+                    colors[i][j] = lambertColorCal.calculateColor(currentSphere, scene, getP(i, j));
                 }
             }
         }
@@ -105,7 +105,9 @@ public class RayTracer {
             BufferedImage img = new BufferedImage(imgWidth, imgHeight, BufferedImage.TYPE_INT_RGB);
             for (int i=0;i<imgWidth;i++) {
                 for (int j = 0; j < imgHeight; j++) {
-                    img.setRGB(i,j,new java.awt.Color((int) (colors[i][j].getCoor().getX()*255),(int) (colors[i][j].getCoor().getY()*255), (int) (colors[i][j].getCoor().getZ()*255)).getRGB());
+                    img.setRGB(i, j, new java.awt.Color((float) colors[i][j].getCoor().getX(),
+                            (float) colors[i][j].getCoor().getY(),
+                            (float) colors[i][j].getCoor().getZ()).getRGB());
                 }
             }
             ImageIO.write(img,"png",scene.getOutput());
@@ -123,7 +125,7 @@ public class RayTracer {
      */
     public double getT(Vector d) {
         for(Sphere sphere : scene.getSphere()){
-            Vector sphereVector = new Vector(sphere.getPosition().getCoor());
+            Point sphereVector = sphere.getPosition();
             double b = 2*camera.getLookFrom().sub(sphereVector).scalarProduct(d);
             double c = camera.getLookFrom().sub(sphereVector).scalarProduct(camera.getLookFrom().sub(sphereVector)) - Math.pow(sphere.getRadius(), 2);
             double delta = Math.pow(b,2) - 4 * c;
@@ -135,7 +137,7 @@ public class RayTracer {
             }
             else if(delta>0){
                 double t1 = -b + Math.sqrt(delta)/2;
-                double t2 = -b + Math.sqrt(delta)/2;
+                double t2 = -b - Math.sqrt(delta)/2;
                 if (t2>0) {
                     setCurrentSphere(sphere);
                     return t2;
@@ -155,8 +157,9 @@ public class RayTracer {
      * @param j the j
      * @return the vector
      */
-    public Vector getP(int i, int j){
-        return scene.getCamera().getLookFrom().add(getD(i,j).multiply(getT(getD(i,j))));
+    public Point getP(int i, int j){
+        Vector d = getD(i, j);
+        return d.multiply(getT(d)).add(scene.getCamera().getLookFrom());
     }
 
     /**
@@ -169,8 +172,7 @@ public class RayTracer {
     public Vector getN(int i, int j){
         Vector n = null;
         for(Sphere sphere : scene.getSphere()){
-            Vector sphereVector = new Vector(sphere.getPosition().getCoor());
-            n = getP(i,j).sub(sphereVector).normalize();
+            n = getP(i,j).sub(sphere.getPosition()).normalize();
         }
         return n;
     }

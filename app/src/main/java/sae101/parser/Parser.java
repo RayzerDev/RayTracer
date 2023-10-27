@@ -40,7 +40,6 @@ public class Parser {
      * @throws IOException the io exception
      */
     public Scene build() throws IOException {
-        sceneBuilder.setDiffuse(new Color(0,0,0));
         sceneBuilder.setSpecular(new Color(0,0,0));
         in.lines().forEach(line->{
             String[] lineSplit = line.split(" ");
@@ -50,8 +49,8 @@ public class Parser {
 
                 case "output" -> sceneBuilder.setOutput(new File(lineSplit[1]));
 
-                case "camera" -> sceneBuilder.setCamera(new Camera(new Vector(Double.parseDouble(lineSplit[1]),Double.parseDouble(lineSplit[2]),Double.parseDouble(lineSplit[3])),
-                                new Vector(Double.parseDouble(lineSplit[4]),Double.parseDouble(lineSplit[5]),Double.parseDouble(lineSplit[6])),
+                case "camera" -> sceneBuilder.setCamera(new Camera(new Point(Double.parseDouble(lineSplit[1]),Double.parseDouble(lineSplit[2]),Double.parseDouble(lineSplit[3])),
+                                new Point(Double.parseDouble(lineSplit[4]),Double.parseDouble(lineSplit[5]),Double.parseDouble(lineSplit[6])),
                                 new Vector(Double.parseDouble(lineSplit[7]),Double.parseDouble(lineSplit[8]),Double.parseDouble(lineSplit[9])),
                                 Integer.parseInt(lineSplit[10]
                                 )));
