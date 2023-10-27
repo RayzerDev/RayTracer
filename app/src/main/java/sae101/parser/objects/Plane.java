@@ -11,9 +11,9 @@ import sae101.triplet.Vector;
  * The type Plane.
  */
 public class Plane extends SceneObjects {
-    private final Vector normal;
+    private final Triplet normal;
 
-    private final Point positionPoint;
+    private final Triplet positionPoint;
 
     /**
      * Instantiates a new Plane.
