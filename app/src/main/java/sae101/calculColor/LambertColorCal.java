@@ -13,7 +13,7 @@ import sae101.triplet.Vector;
 public class LambertColorCal implements IFormLambert{
     @Override
     public Color calculateColor(Sphere sphere, Scene scene, Point p) {
-        Vector n = p.sub(sphere.getPosition()).normalize();
+        Vector n = sphere.getPosition().sub(p).normalize();
         Color col = new Color(0,0,0);
 
         for(Light light : scene.getLight()){

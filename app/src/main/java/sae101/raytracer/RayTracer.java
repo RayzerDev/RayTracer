@@ -105,7 +105,9 @@ public class RayTracer {
             BufferedImage img = new BufferedImage(imgWidth, imgHeight, BufferedImage.TYPE_INT_RGB);
             for (int i=0;i<imgWidth;i++) {
                 for (int j = 0; j < imgHeight; j++) {
-                    img.setRGB(i,j,new java.awt.Color((int) (colors[i][j].getCoor().getX()*255),(int) (colors[i][j].getCoor().getY()*255), (int) (colors[i][j].getCoor().getZ()*255)).getRGB());
+                    img.setRGB(i, j, new java.awt.Color((float) colors[i][j].getCoor().getX(),
+                            (float) colors[i][j].getCoor().getY(),
+                            (float) colors[i][j].getCoor().getZ()).getRGB());
                 }
             }
             ImageIO.write(img,"png",scene.getOutput());
@@ -135,7 +137,7 @@ public class RayTracer {
             }
             else if(delta>0){
                 double t1 = -b + Math.sqrt(delta)/2;
-                double t2 = -b + Math.sqrt(delta)/2;
+                double t2 = -b - Math.sqrt(delta)/2;
                 if (t2>0) {
                     setCurrentSphere(sphere);
                     return t2;

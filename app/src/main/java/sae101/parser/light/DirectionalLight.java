@@ -32,7 +32,6 @@ public class DirectionalLight extends Light{
      * @return the vector
      */
     public Vector getLdir(Point p){
-        return new Vector(-direction.getCoor().getX(),-direction.getCoor().getY(),-direction.getCoor().getZ()).normalize();
+        return new Vector(direction.getCoor().getX(), direction.getCoor().getY(), direction.getCoor().getZ()).normalize();
     }
-
 }
