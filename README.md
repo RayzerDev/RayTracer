@@ -8,9 +8,9 @@ SAE 3.01: Implementation of an application. We need to create a ray tracer that 
 #### Skill 6: Collaborate within an IT team.
 
 ## 🛠️ Tools
-- [Java](https://www.java.com/fr/) - [image](https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/1200px-Java_Logo.svg.png)
-- [Intellij](https://www.jetbrains.com/idea/)
-- [Gradle](https://gradle.org/)
+<a href="https://www.java.com/fr/"><img src="app/src/main/resources/javalogo.png" alt="drawing" width="50"/>
+<a href="https://gradle.org"><img src="app/src/main/resources/intellijlogo.png" alt="drawing" width="70"/>
+<a href="https://www.jetbrains.com/fr-fr/idea/"><img src="app/src/main/resources/gradlelogo.png" alt="drawing" width="70"/>
 
 ## 🛠️ Start
 ```bash
